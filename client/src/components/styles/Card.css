@@ -1,0 +1,24 @@
+.card {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(47, 119, 202);
+    height: 380px;
+    width: 320px;
+    margin: 10px;
+    display: inline-flex;
+    flex-direction: column;
+}
+a:link{
+    text-decoration: none;
+}
+.card:hover{
+    background-color: rgb(153, 49, 136);
+}
+
+.image{
+    width: 300px;
+    height: 200px;
+    margin: auto;
+}
+

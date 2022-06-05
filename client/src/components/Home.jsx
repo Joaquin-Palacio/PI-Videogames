@@ -1,0 +1,136 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import './styles/home.css';
+import {
+  getVideogames,
+  filterVideogamesByGenre,
+  getGenres,
+  filterCreated,
+  orderName,
+  filterRating,
+  getPlatforms,
+} from "../actions/actions";
+import { Link } from "react-router-dom";
+import Card from "./Card";
+import Paginado from "./Paginado.jsx";
+import SearchBar from "./SearchBar.jsx";
+
+export default function Home() {
+  const dispatch = useDispatch();
+  const allVideogames = useSelector((state) => state.videogames);
+  const genres = useSelector((state) => state.genres);
+  const platforms = useSelector((state) => state.platforms);
+
+  const [order, setOrder] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);                        // siempre arranco de la primer pagina
+  const [videogamesPerPage, setVideogamePerPage] = useState(15);            //videogames por pagina
+  const indexOfLastVideogame = currentPage * videogamesPerPage;             // 15
+  const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;   // 0  
+  const currentVideogames = allVideogames.slice( indexOfFirstVideogame, indexOfLastVideogame );
+
+  const paginado = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+
+  useEffect(() => {
+    dispatch(getVideogames());
+    dispatch(getGenres());
+    dispatch(getPlatforms());
+  }, [dispatch]);
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(getVideogames());
+  }
+
+  const handleFilterGenre = (e) => {
+    e.preventDefault();
+    dispatch(filterVideogamesByGenre(e.target.value));
+  }
+
+
+  const handleFilterRating = (e) => {
+    e.preventDefault()
+    dispatch(filterRating(e.target.value))
+    setCurrentPage(1)
+    setOrder(e.target.value)
+    }
+
+  const handleFilterCreated = (e) => {
+    e.preventDefault();
+    dispatch(filterCreated(e.target.value))
+  }
+
+  const handleOrderName = (e) => {
+    e.preventDefault();
+    dispatch(orderName(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordenado ${e.target.value}`);
+  }
+  return (
+    <div className="home">
+      <Link to="/videogame" className="link">Crear Videojuego</Link>
+
+      <h1>LOLIXGAMES</h1>
+
+      <button onClick={ (e) => {handleClick(e)} } className="botonCargarJuegos">
+        Cargar nuevamente los videojuegos
+      </button>
+
+      <SearchBar />
+ 
+      <div>
+        <select onChange={(e) => handleOrderName(e)}>
+          <option disabled={order}>Ordenar Alfabéticamente</option>
+          <option value="AZ">A-Z</option>
+          <option value="ZA">Z-A</option>
+        </select>
+
+        <select onChange={(e) => handleFilterRating(e)}>
+          <option disabled={order}>Ordenar por Rating</option>
+          <option value="masp">Más Populares</option>
+          <option value="menosp">Menos Populares</option>
+        </select>
+        
+
+        <select onChange={(e) => handleFilterGenre(e)}>
+          <option value={"All"}>Todos los Géneros</option>
+          {genres?.map((x) => {
+            return <option value={x.name}>{x.name}</option>;
+          })}
+        </select>
+
+
+        <select onChange={(e) => handleFilterCreated(e)}>
+          <option value="All">Todos los Videojuegos</option>
+          <option value="Api"> Videojuegos Existentes</option>
+          <option value="Created">Videojuegos Creados</option>
+        </select>
+
+        <Paginado 
+          videogamesPerPage={videogamesPerPage}
+          allVideogames={allVideogames.length}
+          paginado={paginado}
+        />
+
+        {currentVideogames?.map((e) => {
+          return (
+            <fragment>
+              <Link to={"/home/" + e.id}>
+                <Card
+                  name={e.name}
+                  image={e.image}
+                  genres={e.genres}
+                  key={e.id}
+                />
+              </Link>
+            </fragment>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

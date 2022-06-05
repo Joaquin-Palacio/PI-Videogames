@@ -1,0 +1,16 @@
+.landing {
+    color: #fff;
+}
+
+.h1 {
+    margin-top: 200px;
+}
+
+.boton {
+    background-color: rgb(141, 49, 153);
+    color: #fff;
+}
+.boton:hover {
+    color: #fff;
+    background-color: rgb(47, 119, 202);
+}

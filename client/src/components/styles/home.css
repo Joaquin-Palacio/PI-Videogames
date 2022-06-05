@@ -1,0 +1,18 @@
+.home {
+    color: #fff;
+}
+
+.link{
+    color:#fff;
+}
+.link:hover{
+    color:#aaf
+}
+
+
+.botonCargarJuegos{
+    margin-right: 750px;
+}
+.botonCargarJuegos:hover{
+    color: darkmagenta;
+}

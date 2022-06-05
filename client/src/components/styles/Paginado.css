@@ -1,0 +1,19 @@
+.paginado{
+display: inline-block;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+.number{
+    display: inline;
+    padding: 10px;
+    color: #fff;
+    background-color: rgb(47, 119, 202);
+    font-size: 14px;   
+    font-weight: 10px; 
+}
+
+.number:hover{
+    background-color: rgb(141, 49, 153);
+    color: #fff
+}
