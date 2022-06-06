@@ -18,27 +18,24 @@ export default function CardDetail() {
     <div>
       <div className="allCard">
         {videogame.name ? (
-          <div className="cardDetail">
-            <div className="containterLeft">
-              <h1>{videogame.name}</h1>
+          <div>
+            <div>
               <img
                 src={videogame.image}
-                className="imgDetailCard"
+                className="imageDetail"
                 alt="Imagen del jueego"
-              />
+                />
               <br></br>
-              <h3>Description</h3>
-              <p>{videogame.description}</p>
+              <h1>{videogame.name}</h1>
               <h3>Genres:</h3>
               {videogame.genres?.map((e) => {
                 if (typeof e === "string") {
                   return (
                     <span className="type" key={e}>
-                      {e.replace(e[0], e[0].toUpperCase())} |
-                    </span>
+                      {e.replace(e[0], e[0].toUpperCase())} | </span>
                   );
                 } else {
-                  return <span key={e.name}>{e.name} |</span>;
+                  return <span key={e.name}>{e.name} | </span>;
                 }
               })}
               <h3>Platforms:</h3>
@@ -46,30 +43,30 @@ export default function CardDetail() {
                 if (typeof e === "string") {
                   return (
                     <span className="type" key={e}>
-                      {e.replace(e[0], e[0].toUpperCase())} |
-                    </span>
+                      {e.replace(e[0], e[0].toUpperCase())} | </span>
                   );
                 } else {
-                  return <span key={e.name}>{e.name} |</span>;
+                  return <span key={e.name}>{e.name} | </span>;
                 }
               })}
             </div>
-            <div className="containerRight">
-              <div className="info">
-                <label>Released</label>
-                <h6>{videogame.released}</h6>
-                <label>Rating</label>
-                <h3>{videogame.rating}</h3>
+            <div>
+              <div>
+                <h4>Released <br/> {videogame.released}</h4>
+
+                <h3>Rating <br/> {videogame.rating}</h3>
+
+                <p className="descripcion">{videogame.description.replace(/<[^>]+>/g, '')}</p>
               </div>
             </div>
           </div>
         ) : (
-          <h1>Cargando...</h1>
+          <h1 className="cargandoDetalle">Cargando...</h1>
         )}
       </div>
       <Link to="/home">
-        <button>Back to home!</button>
-      </Link>
+          <button className="botonVolver">Volver a la Página Principal</button>
+        </Link>
     </div>
   );
 }

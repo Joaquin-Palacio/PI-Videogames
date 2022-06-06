@@ -88,7 +88,6 @@ export function orderName(payload){
   }
 }
 
-
 export function getNameVideogames(name){
   return async function(dispatch){
     try {

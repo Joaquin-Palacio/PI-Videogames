@@ -26,6 +26,17 @@ function rootReducer(state = initialState, action) {
         videogames: genresFiltered,
       };
 
+      case "FILTER_BY_PLATFORM":
+      const allGames = state.allVideogames;
+      const platformsFiltered =
+        action.payload === "All"
+          ? allGames
+          : allGames.filter((el) => el.platforms.includes(action.payload));
+      return {
+        ...state,
+        videogames: platformsFiltered,
+      };
+
     case "GET_GENRES":
       return {
         ...state,

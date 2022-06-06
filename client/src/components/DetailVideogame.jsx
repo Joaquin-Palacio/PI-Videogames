@@ -17,12 +17,8 @@ export default function Details(){
 
     const videogame = useSelector((state) => state.details)
 
-    console.log(videogame)
     return (
      <div>
-        <Link to="/home">
-          <button>Volver a la Página Principal</button>
-        </Link>
          <CardDetail
          name = {videogame.name} 
          description = {videogame.description} 
@@ -32,7 +28,6 @@ export default function Details(){
          genres = {videogame.genres}
          platforms = {videogame.platforms}
          />
-         <br/>
       </div> 
     );
 }

@@ -2,7 +2,7 @@
     border: none;
     border-radius: 8px;
     color: white;
-    background-color: rgb(47, 119, 202);
+    background-color: rgba(47, 119, 202, 0.700);
     height: 380px;
     width: 320px;
     margin: 10px;
@@ -13,7 +13,10 @@ a:link{
     text-decoration: none;
 }
 .card:hover{
-    background-color: rgb(153, 49, 136);
+    background-color: rgba(153, 49, 136, 0.700);
+}
+.name {
+    margin: 6px;
 }
 
 .image{
@@ -22,3 +25,12 @@ a:link{
     margin: auto;
 }
 
+.spanCard{
+    flex-direction: row;
+    display: flex;
+    margin-left:14px
+}
+
+.h4Card{
+    margin: 0;
+}

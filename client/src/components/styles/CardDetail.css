@@ -1,3 +1,31 @@
-.cardDetail{
+.allCard{
     color: white;
+    background-color: rgba(0, 0, 0, 0.678);
+}
+
+.cargandoDetalle{
+    margin: 200px;
+}
+
+.imageDetail{
+    width: 680px;
+    height: 380px;
+    float: left;
+    margin: 12px;
+    border-radius: 5px;
+}
+
+.descripcion{
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.botonVolver{
+    color: #fff;
+    border-radius: 10px;
+    background-color:  rgb(141, 49, 153);
+    font-size: 16px;
+}
+.botonVolver:hover{
+    background-color: rgb(47, 119, 202);
 }

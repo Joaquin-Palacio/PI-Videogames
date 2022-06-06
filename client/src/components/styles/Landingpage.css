@@ -2,13 +2,14 @@
     color: #fff;
 }
 
-.h1 {
-    margin-top: 200px;
+.landingh1 {
+    padding-top: 150px;
 }
 
 .boton {
     background-color: rgb(141, 49, 153);
     color: #fff;
+    font-size: 20px;
 }
 .boton:hover {
     color: #fff;

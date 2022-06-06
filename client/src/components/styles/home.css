@@ -1,18 +1,74 @@
 .home {
-    color: #fff;
+  color: #fff;
 }
 
-.link{
-    color:#fff;
+.Homeh1 {
+  margin-top: 0;
+  font-size: 45px;
 }
-.link:hover{
-    color:#aaf
+
+.link {
+  background-color: rgb(141, 49, 153);
+  font-size: 16px;
+  /* margin-left: 750px; */
+  color: #fff;
+  padding: 4px;
+  border-radius: 8px;
+  margin-right: 550px;
+}
+.link:hover {
+  background-color: rgb(47, 119, 202);
+}
+
+.botonCargarJuegos {
+  /*  margin-right: 750px; */
+  color: #fff;
+  background-color: rgb(141, 49, 153);
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 8px;
+}
+.botonCargarJuegos:hover {
+  background-color: rgb(47, 119, 202);
 }
 
 
-.botonCargarJuegos{
-    margin-right: 750px;
+.botonOrdenar {
+  color: #fff;
+   background-color: rgba(59, 59, 59, 0.80);
+   margin: 2px;
+   margin-bottom: 5px;
+   font-size: 15px;
 }
-.botonCargarJuegos:hover{
-    color: darkmagenta;
+
+.botonOrdenarRating {
+  color: #fff;
+   background-color: rgba(59, 59, 59, 0.80);
+   margin: 2px;
+   margin-bottom: 5px;
+   font-size: 15px;
+}
+
+.botonFiltrarGeneros {
+  color: #fff;
+   background-color: rgba(59, 59, 59, 0.80);
+   margin: 2px;
+   margin-bottom: 5px;
+   font-size: 15px;
+}
+
+.botonFiltrarPlataformas {
+  color: #fff;
+   background-color: rgba(59, 59, 59, 0.80);
+   margin: 2px;
+   margin-bottom: 5px;
+   font-size: 15px;
+}
+
+.botonFiltrarApiCreados {
+  color: #fff;
+   background-color: rgba(59, 59, 59, 0.80);
+   margin: 2px;
+   margin-bottom: 5px;
+   font-size: 15px;
 }

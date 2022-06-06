@@ -14,10 +14,11 @@ function validate(input) {
     errors.released =
       "Por favor coloque una fecha de lanzamiento para continuar";
   } else if (!input.rating) {
-    errors.rating = "Por favor coloque una puntuación para continuar";
+    errors.rating = "Por favor coloque una puntuación válida para continuar";
   }
   return errors;
 }
+
 
 export default function VideogameCreate() {
   const dispatch = useDispatch();
@@ -84,7 +85,7 @@ export default function VideogameCreate() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     if(!errors.name && !errors.description){
+     if(!errors.name && !errors.description && !errors.released && !errors.rating){
         dispatch(postVideogame(input));
         alert("Videojuego creado con éxito");
         console.log(input);
@@ -106,12 +107,14 @@ export default function VideogameCreate() {
   return (
     <div className="create">
       <Link to="/home">
-        <button>Volver</button>
+        <button className="botonVolver">Return to Main Page</button>
       </Link>
-      <h1>Crear Videojuego</h1>
+
+      <h1>Create Your New Videogame</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <input
+            className="inputName"
             type="text"
             placeholder="Name.."
             value={input.name}
@@ -122,16 +125,18 @@ export default function VideogameCreate() {
         </div>
         <div>
           <input
+            className="inputDescription"
             type="text"
             placeholder="Description.."
             value={input.description}
             name="description"
             onChange={(e) => handleChange(e)}
           />
-          {errors.description && <p className="error">{errors.description}</p>}
+          {errors.description && <p className="error">{errors.description}</p>}   
         </div>
         <div>
           <input
+            className="inputReleased"
             type="text"
             placeholder="Released.."
             value={input.released}
@@ -140,20 +145,10 @@ export default function VideogameCreate() {
           />
           {errors.released && <p className="error">{errors.released}</p>}
         </div>
+       
         <div>
-          <label>Rating:</label>
           <input
-            type="number"
-            min={1}
-            max={5}
-            value={input.rating}
-            name="rating"
-            onChange={(e) => handleChange(e)}
-          ></input>
-        </div>
-        <div>
-          <label></label>
-          <input
+            className="inputImage"
             type="text"
             placeholder="Image.."
             value={input.image}
@@ -161,8 +156,20 @@ export default function VideogameCreate() {
             onChange={(e) => handleChange(e)}
           ></input>
         </div>
+        <div>
+          <label className="labelRating">Rating: </label>
+          <input
+            className="inputRating"
+            type="number"
+            min={1.0}
+            max={5.0}
+            value={input.rating}
+            name="rating"
+            onChange={(e) => handleChange(e)}
+          ></input>
+        </div>
 
-        <label>Genres:</label>
+        <label className="labelGenres">Genres: </label>
         <select onChange={(e) => handleGenre(e)}>
           {genres.map((g) => (
             <option value={g.name}>{g.name}</option>
@@ -178,9 +185,10 @@ export default function VideogameCreate() {
             >x</button>
           </div>
         ))}
+
         <br />
 
-        <label>Plataforms:</label>
+        <label className="labelPlatforms">Plataforms: </label>
         <select onChange={(e) => handlePlatform(e)}>
           {platforms.map((p) => (
             <option value={p.name}>{p.name}</option>
@@ -197,8 +205,7 @@ export default function VideogameCreate() {
           </div>
         ))}
         <br />
-
-        <button type="submit">Crear nuevo videojuego</button>
+        <button className="botonCrear" type="submit">Create Videogame</button>
       </form>
     </div>
   );

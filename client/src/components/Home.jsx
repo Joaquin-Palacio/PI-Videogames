@@ -10,6 +10,7 @@ import {
   orderName,
   filterRating,
   getPlatforms,
+  filterVideogamesByPlatform,
 } from "../actions/actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
@@ -51,6 +52,11 @@ export default function Home() {
     dispatch(filterVideogamesByGenre(e.target.value));
   }
 
+  const handleFilterPlatform = (e) => {
+    e.preventDefault();
+    dispatch(filterVideogamesByPlatform(e.target.value));
+  }
+
 
   const handleFilterRating = (e) => {
     e.preventDefault()
@@ -72,39 +78,45 @@ export default function Home() {
   }
   return (
     <div className="home">
-      <Link to="/videogame" className="link">Crear Videojuego</Link>
-
-      <h1>LOLIXGAMES</h1>
-
-      <button onClick={ (e) => {handleClick(e)} } className="botonCargarJuegos">
-        Cargar nuevamente los videojuegos
-      </button>
-
+      <h1 className="Homeh1">LOLIXGAMES</h1>
+    
+        <Link to="/videogame" className="link">Crear Videojuego</Link>
+        <button onClick={ (e) => {handleClick(e)} } className="botonCargarJuegos">
+          Recargar Videojuegos
+        </button>
+      
       <SearchBar />
  
       <div>
-        <select onChange={(e) => handleOrderName(e)}>
+        <select onChange={(e) => handleOrderName(e)} className='botonOrdenar'>
           <option disabled={order}>Ordenar Alfabéticamente</option>
           <option value="AZ">A-Z</option>
           <option value="ZA">Z-A</option>
         </select>
 
-        <select onChange={(e) => handleFilterRating(e)}>
+        <select onChange={(e) => handleFilterRating(e)} className='botonOrdenarRating'>
           <option disabled={order}>Ordenar por Rating</option>
           <option value="masp">Más Populares</option>
           <option value="menosp">Menos Populares</option>
         </select>
         
 
-        <select onChange={(e) => handleFilterGenre(e)}>
-          <option value={"All"}>Todos los Géneros</option>
+        <select onChange={(e) => handleFilterGenre(e)} className='botonFiltrarGeneros'>
+          <option value={"All"}>Filtrar por Géneros</option>
           {genres?.map((x) => {
             return <option value={x.name}>{x.name}</option>;
           })}
         </select>
 
+        <select onChange={(e) => handleFilterPlatform(e)} className='botonFiltrarPlataformas'>
+          <option value={"All"}>Filtrar por Plataformas</option>
+          {platforms?.map((z) => {
+            return <option value={z.name}>{z.name}</option>;
+          })}
+        </select>
 
-        <select onChange={(e) => handleFilterCreated(e)}>
+
+        <select onChange={(e) => handleFilterCreated(e)} className='botonFiltrarApiCreados'>
           <option value="All">Todos los Videojuegos</option>
           <option value="Api"> Videojuegos Existentes</option>
           <option value="Created">Videojuegos Creados</option>
@@ -123,7 +135,7 @@ export default function Home() {
                 <Card
                   name={e.name}
                   image={e.image}
-                  genres={e.genres}
+                  genres={e.genres} 
                   key={e.id}
                 />
               </Link>
