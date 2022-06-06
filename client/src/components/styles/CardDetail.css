@@ -25,6 +25,7 @@
     border-radius: 10px;
     background-color:  rgb(141, 49, 153);
     font-size: 16px;
+    border: none;
 }
 .botonVolver:hover{
     background-color: rgb(47, 119, 202);

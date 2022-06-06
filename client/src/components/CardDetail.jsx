@@ -61,11 +61,11 @@ export default function CardDetail() {
             </div>
           </div>
         ) : (
-          <h1 className="cargandoDetalle">Cargando...</h1>
+          <h1 className="cargandoDetalle">Loading...</h1>
         )}
       </div>
       <Link to="/home">
-          <button className="botonVolver">Volver a la Página Principal</button>
+          <button className="botonVolver">Return to Main Page</button>
         </Link>
     </div>
   );

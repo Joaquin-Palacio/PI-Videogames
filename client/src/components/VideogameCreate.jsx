@@ -7,18 +7,16 @@ import "./styles/createGame.css";
 function validate(input) {
   let errors = {};
   if (!input.name) {
-    errors.name = "Por favor coloque un nombre para continuar";
+    errors.name = "Please put a name for continue";
   } else if (!input.description) {
-    errors.description = "Por favor coloque una descripción para continuar";
+    errors.description = "Please put a description for continue";
   } else if (!input.released) {
-    errors.released =
-      "Por favor coloque una fecha de lanzamiento para continuar";
-  } else if (!input.rating) {
-    errors.rating = "Por favor coloque una puntuación válida para continuar";
+    errors.released = "Please put a released date for continue";
+  } else if (parseFloat(input.rating) < 1 || parseFloat(input.rating) > 5) {
+    errors.rating = "The rating must be a number from 1 to 5";
   }
   return errors;
 }
-
 
 export default function VideogameCreate() {
   const dispatch = useDispatch();
@@ -85,23 +83,28 @@ export default function VideogameCreate() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     if(!errors.name && !errors.description && !errors.released && !errors.rating){
-        dispatch(postVideogame(input));
-        alert("Videojuego creado con éxito");
-        console.log(input);
-        setInput({
-          name: "",
-          released: "",
-          image: "",
-          rating: 0,
-          description: "",
-          genre: [],
-          platforms: [],
-        });
-        history.push("/home");
-      } else {
-        alert('Faltan campos por completar');
-      }
+    if (
+      !errors.name &&
+      !errors.description &&
+      !errors.released &&
+      !errors.rating
+    ) {
+      dispatch(postVideogame(input));
+      alert("Videojuego creado con éxito");
+      console.log(input);
+      setInput({
+        name: "",
+        released: "",
+        image: "",
+        rating: 0,
+        description: "",
+        genre: [],
+        platforms: [],
+      });
+      history.push("/home");
+    } else {
+      alert("Missing data required");
+    }
   };
 
   return (
@@ -112,100 +115,113 @@ export default function VideogameCreate() {
 
       <h1>Create Your New Videogame</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <input
-            className="inputName"
-            type="text"
-            placeholder="Name.."
-            value={input.name}
-            name="name"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.name && <p className="error">{errors.name}</p>}
-        </div>
-        <div>
-          <input
-            className="inputDescription"
-            type="text"
-            placeholder="Description.."
-            value={input.description}
-            name="description"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.description && <p className="error">{errors.description}</p>}   
-        </div>
-        <div>
-          <input
-            className="inputReleased"
-            type="text"
-            placeholder="Released.."
-            value={input.released}
-            name="released"
-            onChange={(e) => handleChange(e)}
-          />
-          {errors.released && <p className="error">{errors.released}</p>}
-        </div>
-       
-        <div>
-          <input
-            className="inputImage"
-            type="text"
-            placeholder="Image.."
-            value={input.image}
-            name="image"
-            onChange={(e) => handleChange(e)}
-          ></input>
-        </div>
-        <div>
-          <label className="labelRating">Rating: </label>
-          <input
-            className="inputRating"
-            type="number"
-            min={1.0}
-            max={5.0}
-            value={input.rating}
-            name="rating"
-            onChange={(e) => handleChange(e)}
-          ></input>
-        </div>
+        
+        <div className="inputs">
+        <input
+          className="inputName"
+          type="text"
+          placeholder="Name.."
+          value={input.name}
+          name="name"
+          onChange={(e) => handleChange(e)}
+        />
+        <input
+          className="inputDescription"
+          type="text"
+          placeholder="Description.."
+          value={input.description}
+          name="description"
+          onChange={(e) => handleChange(e)}
+        />
 
-        <label className="labelGenres">Genres: </label>
-        <select onChange={(e) => handleGenre(e)}>
-          {genres.map((g) => (
-            <option value={g.name}>{g.name}</option>
+        <input
+          className="inputReleased"
+          type="text"
+          placeholder="Released Date.."
+          value={input.released}
+          name="released"
+          onChange={(e) => handleChange(e)}
+        />
+
+        <input
+          className="inputImage"
+          type="text"
+          placeholder="Image.."
+          value={input.image}
+          name="image"
+          onChange={(e) => handleChange(e)}
+        />
+
+        <label className="labelRating">Rating: </label>
+        <input
+          className="inputRating"
+          placeholder="Rating.."
+          type="number"
+          value={input.rating}
+          name="rating"
+          onChange={(e) => handleChange(e)}
+        />
+      </div>
+
+
+        <div className="GenYPlat">
+          <label className="labelGenres">Genres: </label>
+          <select onChange={(e) => handleGenre(e)}>
+            {genres.map((g) => (
+              <option className="optionGeneros" value={g.name}>
+                {g.name}
+              </option>
+            ))}
+          </select>
+
+          {input.genre.map((e) => (
+            <div>
+              <p> {e} | </p>
+              <button
+                className="botonX"
+                onClick={() => handleDeleteGenre(e)}
+                type="reset"
+              >X</button>
+            </div>
           ))}
-        </select>
-        {input.genre.map((e) => (
-          <div>
-            <p>{e}</p>
-            <button
-              className="botonX"
-              onClick={() => handleDeleteGenre(e)}
-              type="reset"
-            >x</button>
-          </div>
-        ))}
+
+          <br />
+
+          <label className="labelPlatforms">Plataforms: </label>
+          <select onChange={(e) => handlePlatform(e)}>
+            {platforms.map((p) => (
+              <option className="optionPlataformas" value={p.name}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+          {input.platforms.map((e) => (
+            <div>
+              <p>| {e} |</p>
+              <button
+                className="botonXplatforms"
+                onClick={() => handleDeletePlatforms(e)}
+                type="reset"
+              >X</button>
+            </div>
+          ))}
+        </div>
 
         <br />
 
-        <label className="labelPlatforms">Plataforms: </label>
-        <select onChange={(e) => handlePlatform(e)}>
-          {platforms.map((p) => (
-            <option value={p.name}>{p.name}</option>
-          ))}
-        </select>
-        {input.platforms.map((e) => (
-          <div>
-            <p>{e}</p>
-            <button
-              className="botonXplatforms"
-              onClick={() => handleDeletePlatforms(e)}
-              type="reset"
-            >x</button>
-          </div>
-        ))}
+        <div className="errores">
+          {errors.name && <span className="error">{errors.name}</span>}
+          {errors.description && (
+            <span className="error">{errors.description}</span>
+          )}
+          {errors.released && <span className="error">{errors.released}</span>}
+          {errors.rating && <span className="error">{errors.rating}</span>}
+        </div>
         <br />
-        <button className="botonCrear" type="submit">Create Videogame</button>
+
+        <button className="botonCrear" type="submit">
+          Create Videogame
+        </button>
       </form>
     </div>
   );

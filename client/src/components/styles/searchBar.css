@@ -17,6 +17,7 @@
     border-radius: 8px;
     font-size: 15px;
     margin-left: 5px;
+    border: none;
 }
 .botonBuscar:hover{
     background-color:    rgba(47, 119, 202, 0.600);

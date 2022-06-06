@@ -17,25 +17,51 @@ function rootReducer(state = initialState, action) {
 
     case "FILTER_BY_GENRE":
       const allVideogames = state.allVideogames;
-      const genresFiltered =
-        action.payload === "All"
-          ? allVideogames
-          : allVideogames.filter((el) => el.genres.includes(action.payload));
-      return {
-        ...state,
-        videogames: genresFiltered,
-      };
+      if (action.payload === "all") {
+        return {
+          ...state,
+          videogames: allVideogames,
+        };
+      } else {
+        let filterByGenre = allVideogames.filter((el) => {
+          for (let i = 0; i < el.genres.length; i++) {
+            if (el.genres[i].name === action.payload) {
+              return true;
+            } else if (el.genres[i] === action.payload) {
+              return true;
+            }
+          }
+          return false;
+        });
+        return {
+          ...state,
+          videogames: [...filterByGenre],
+        };
+      }
 
-      case "FILTER_BY_PLATFORM":
+    case "FILTER_BY_PLATFORM":
       const allGames = state.allVideogames;
-      const platformsFiltered =
-        action.payload === "All"
-          ? allGames
-          : allGames.filter((el) => el.platforms.includes(action.payload));
-      return {
-        ...state,
-        videogames: platformsFiltered,
-      };
+      if (action.payload === "all") {
+        return {
+          ...state,
+          videogames: allGames,
+        };
+      } else {
+        let filterByPlatform = allGames.filter((el) => {
+          for (let i = 0; i < el.platforms.length; i++) {
+            if (el.platforms[i].name === action.payload) {
+              return true;
+            } else if (el.platforms[i] === action.payload) {
+              return true;
+            }
+          }
+          return false;
+        });
+        return {
+          ...state,
+          videogames: [...filterByPlatform],
+        };
+      }
 
     case "GET_GENRES":
       return {
@@ -118,7 +144,7 @@ function rootReducer(state = initialState, action) {
         videogames: filterRating,
       };
 
-   /*  case "POST_VIDEOGAME":
+    /*  case "POST_VIDEOGAME":
       return {
         ...state,
       }; */

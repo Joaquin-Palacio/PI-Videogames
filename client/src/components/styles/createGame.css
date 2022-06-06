@@ -1,9 +1,11 @@
 .create {
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.400); 
 }
 
 .botonVolver{
     margin-top: 15px;
+    border: none;
 }
 
 .botonCrear{
@@ -12,6 +14,8 @@
     margin: 24px;
     background-color: rgb(47, 119, 202);
     color: #fff;
+    margin-bottom: 400px;
+    border: none;
 }
 .botonCrear:hover{
     color: #fff;
@@ -21,7 +25,64 @@
 
 .error{
     color: red;
-    background-color: rgba(255, 255, 255, 0.800);
+    background-color: rgba(255, 255, 255, 0.747);
     align-items: center;
     text-align: center;
+    font-size: 18px;
+}
+.errores{
+    margin-top: 18px;
+}
+
+
+.inputs{
+    margin: 20px;
+}
+
+.inputName{
+    color:#fff;
+    background-color: rgba(59, 59, 59, 0.80);
+    text-decoration: none;
+    border: 0;
+    font-size: 16px;
+    margin: 5px
+}
+.inputDescription{
+    color:#fff;
+    background-color: rgba(59, 59, 59, 0.80);
+    text-decoration: none;
+    border: 0;
+    font-size: 16px;
+    margin: 5px
+}
+.inputReleased{
+    color:#fff;
+    background-color: rgba(59, 59, 59, 0.80);
+    text-decoration: none;
+    border: 0;
+    font-size: 16px;
+    margin: 5px
+}
+.inputImage{
+    color:#fff;
+    background-color: rgba(59, 59, 59, 0.80);
+    text-decoration: none;
+    border: 0;
+    font-size: 16px;
+    margin: 5px
+    
+}
+.labelRating{
+    background-color: rgba(0, 0, 0, 0.80);
+    font-size: 18px;
+}
+.inputRating{
+    color:#fff;
+    background-color: rgba(59, 59, 59, 0.80);
+    text-decoration: none;
+    border: 0;
+    font-size: 16px;
+    margin-right: 53px;
+    margin-bottom: 20px;
+    margin: 5px
 }

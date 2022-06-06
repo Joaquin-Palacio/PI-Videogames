@@ -80,36 +80,36 @@ export default function Home() {
     <div className="home">
       <h1 className="Homeh1">LOLIXGAMES</h1>
     
-        <Link to="/videogame" className="link">Crear Videojuego</Link>
+        <Link to="/videogame" className="link">Create Your Videogame</Link>
         <button onClick={ (e) => {handleClick(e)} } className="botonCargarJuegos">
-          Recargar Videojuegos
+          Reload Videogames
         </button>
       
       <SearchBar />
  
       <div>
         <select onChange={(e) => handleOrderName(e)} className='botonOrdenar'>
-          <option disabled={order}>Ordenar Alfabéticamente</option>
+          <option disabled={order}>Order Alphabetically</option>
           <option value="AZ">A-Z</option>
           <option value="ZA">Z-A</option>
         </select>
 
         <select onChange={(e) => handleFilterRating(e)} className='botonOrdenarRating'>
-          <option disabled={order}>Ordenar por Rating</option>
-          <option value="masp">Más Populares</option>
-          <option value="menosp">Menos Populares</option>
+          <option disabled={order}>Order by Rating</option>
+          <option value="masp">Most Populars</option>
+          <option value="menosp">Least Populars</option>
         </select>
         
 
         <select onChange={(e) => handleFilterGenre(e)} className='botonFiltrarGeneros'>
-          <option value={"All"}>Filtrar por Géneros</option>
+          <option value={"All"}>Filter by Genres</option>
           {genres?.map((x) => {
             return <option value={x.name}>{x.name}</option>;
           })}
         </select>
 
         <select onChange={(e) => handleFilterPlatform(e)} className='botonFiltrarPlataformas'>
-          <option value={"All"}>Filtrar por Plataformas</option>
+          <option value={"All"}>Filter by Platforms</option>
           {platforms?.map((z) => {
             return <option value={z.name}>{z.name}</option>;
           })}
@@ -117,9 +117,9 @@ export default function Home() {
 
 
         <select onChange={(e) => handleFilterCreated(e)} className='botonFiltrarApiCreados'>
-          <option value="All">Todos los Videojuegos</option>
-          <option value="Api"> Videojuegos Existentes</option>
-          <option value="Created">Videojuegos Creados</option>
+          <option value="All">All Videogames</option>
+          <option value="Api">Videogames API</option>
+          <option value="Created">Videogames Created</option>
         </select>
 
         <Paginado 

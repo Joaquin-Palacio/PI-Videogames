@@ -8,12 +8,12 @@ margin-bottom: 20px;
     display: inline;
     padding: 10px;
     color: #fff;
-    background-color: rgb(47, 119, 202);
+    background-color: rgb(47, 119, 202, 0.700);
     font-size: 14px;   
     font-weight: 10px; 
 }
 
 .number:hover{
-    background-color: rgb(141, 49, 153);
-    color: #fff
+    background-color: rgb(141, 49, 153, 0.700);
+    color: #fff;
 }

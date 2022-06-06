@@ -5,23 +5,19 @@ export default function Card({ name, image, genres  }) {
   return (
     <div className="card">
       <h2 className="name">{name}</h2>
-      <h4 className="h4Card">Géneros: </h4>
+      <h4 className="h4Card">Genres: </h4>
       {genres?.map(e => {
         if(typeof(e) === 'string'){
-          return (   
-            <div className="spanCard">
-              <span key={e.name}>{e}</span>
-            </div>
+          return (  
+              <span className="spansCard" key={e.name}>{e}</span>
           )
         } else {
           return (  
-            <div className="spanCard">
-              <span key={e.name}>{e.name}</span>                  
-            </div>   
+              <span className="spansCard" key={e.name}>{e.name}</span>                   
           )
         }
       })}
-      <img className="image" src={image} alt="No se pudo cargar la imagen del juego" />
+      <img className="image" src={image} alt="Failed to load game image" />
     </div>
   );
 }

@@ -8,7 +8,7 @@
 }
 
 .link {
-  background-color: rgb(141, 49, 153);
+  background-color: rgb(141, 49, 153, 0.600);
   font-size: 16px;
   /* margin-left: 750px; */
   color: #fff;
@@ -17,19 +17,20 @@
   margin-right: 550px;
 }
 .link:hover {
-  background-color: rgb(47, 119, 202);
+  background-color: rgb(47, 119, 202, 0.600);
 }
 
 .botonCargarJuegos {
   /*  margin-right: 750px; */
   color: #fff;
-  background-color: rgb(141, 49, 153);
+  background-color: rgba(141, 49, 153, 0.600);
   font-size: 16px;
   padding: 5px;
   border-radius: 8px;
+  border: none;
 }
 .botonCargarJuegos:hover {
-  background-color: rgb(47, 119, 202);
+  background-color: rgb(47, 119, 202, 0.600);
 }
 
 
@@ -58,7 +59,7 @@
 }
 
 .botonFiltrarPlataformas {
-  color: #fff;
+   color: #fff;
    background-color: rgba(59, 59, 59, 0.80);
    margin: 2px;
    margin-bottom: 5px;
