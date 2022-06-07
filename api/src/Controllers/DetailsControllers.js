@@ -34,13 +34,14 @@ router.get("/:id", async (req, res, next) => {
         );
         let e = gameDetail.data;
         const detailsObj = {
+          id: e.id,
           name: e.name,
-        released: e.released,
-        image: e.background_image,
-       rating: e.rating,
-       description: e.description,
-      genres: e.genres,
-      platforms: e.platforms.map(e => e.platform.name),
+         released: e.released,
+         image: e.background_image,
+         rating: e.rating,
+         description: e.description,
+       genres: e.genres,
+       platforms: e.platforms.map(e => e.platform.name),
     };
     return res.send(detailsObj);
   }
@@ -48,9 +49,8 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
-// [ ] POST /videogame:
-// Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
-// Crea un videojuego en la base de datos
+
+
 
 router.post("/", async (req, res, next) => {
   const { name, description, released, image, rating, platforms, genre } =

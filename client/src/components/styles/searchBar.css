@@ -4,10 +4,11 @@
 
 .input{
     color:#fff;
-    background-color: rgba(59, 59, 59, 0.30);
+    background-color: rgba(59, 59, 59, 0.80);
     text-decoration: none;
     border: 0;
     font-size: 16px;
+    border: solid 1px #fff;
 }
 
 .botonBuscar{

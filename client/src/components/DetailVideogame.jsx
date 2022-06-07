@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailsVideogame } from "../actions/actions";
 import { useEffect } from "react";
@@ -10,7 +9,8 @@ import './styles/detailsGame.css';
 
 export default function Details(){
     const dispatch = useDispatch();
-    const { id }  = useParams()
+    const { id }  = useParams();
+
     useEffect(() => {
         dispatch(getDetailsVideogame(id));
     }, [dispatch, id]);
@@ -20,6 +20,7 @@ export default function Details(){
     return (
      <div>
          <CardDetail
+         id = {videogame.id}
          name = {videogame.name} 
          description = {videogame.description} 
          rating = {videogame.rating} 

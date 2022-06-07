@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getDetailsVideogame } from "../actions/actions";
@@ -12,12 +12,13 @@ export default function CardDetail() {
     dispatch(getDetailsVideogame(id));
   }, [dispatch, id]);
 
+
   const videogame = useSelector((state) => state.details);
 
   return (
     <div>
       <div className="allCard">
-        {videogame.name ? (
+        {videogame.id == id ? (
           <div>
             <div>
               <img

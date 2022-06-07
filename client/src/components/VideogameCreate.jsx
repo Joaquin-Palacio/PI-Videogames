@@ -8,20 +8,19 @@ const expresionDate = {
   date: /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
 };
 
-function validate(videogame) {
+
+function validate(input) {
   let errors = {};
-  if (!videogame.name) {
+  if(!input.name){
     errors.name = "Please put a name for continue";
-  } else if (!videogame.description) {
+  } else if (!input.description) {
     errors.description = "Please put a description for continue";
-  } else if (!expresionDate.date.test(videogame.released)) {
+  } else if (!expresionDate.date.test(input.released)) {
     errors.released = "Please put a released date for continue";
-  } else if (
-    parseFloat(videogame.rating) < 1 || parseFloat(videogame.rating) > 5
-  ) {
+  } else if (parseFloat(input.rating) < 1 || parseFloat(input.rating) > 5){
     errors.rating = "The rating must be a number from 1 to 5";
   }
-  return errors;
+    return errors;
 }
 
 export default function VideogameCreate() {
@@ -31,7 +30,7 @@ export default function VideogameCreate() {
   const history = useHistory();
   const [errors, setErrors] = useState({});
 
-  const [videogame, setVideogame] = useState({
+  const [input, setInput] = useState({
     name: "",
     released: "",
     image: "",
@@ -47,73 +46,79 @@ export default function VideogameCreate() {
   }, []);
 
   const handleChange = (e) => {
-    setVideogame({
-      ...videogame,
+    setInput({
+      ...input,
       [e.target.name]: e.target.value,
     });
-    setErrors(
-      validate({
-        ...videogame,
+    setErrors(validate({
+        ...input,
         [e.target.name]: e.target.value,
       })
     );
   };
 
-  const handleGenre = (e) => {
-    setVideogame({
-      ...videogame,
-      genre: [...videogame.genre, e.target.value],
-    });
-  };
+const handleGenre = (e) => {
+    if(e.target.value !== 'Select Genre')
+    if(!input.genre.includes(e.target.value)){
+      setInput({
+        ...input,
+        genre: [...input.genre, e.target.value],
+      });
+    }
+};
 
   const handlePlatform = (e) => {
-    setVideogame({
-      ...videogame,
-      platforms: [...videogame.platforms, e.target.value],
-    });
+    if(e.target.value !== 'Select Platform')
+    if(!input.platforms.includes(e.target.value)){
+      setInput({
+        ...input,
+        platforms: [...input.platforms, e.target.value],
+      });
+    }
   };
 
   const handleDeleteGenre = (e) => {
-    setVideogame({
-      ...videogame,
-      genre: videogame.genre.filter((ge) => ge !== e),
+    setInput({
+      ...input,
+      genre: input.genre.filter((ge) => ge !== e),
     });
   };
 
   const handleDeletePlatforms = (e) => {
-    setVideogame({
-      ...videogame,
-      platforms: videogame.platforms.filter((pla) => pla !== e),
+    setInput({
+      ...input,
+      platforms: input.platforms.filter((pla) => pla !== e),
     });
   };
-
+  
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      !errors.name &&
-      !errors.description &&
-      !errors.released &&
-      !errors.rating &&
-      videogame.genre.length < 1 &&
-      videogame.platforms.length < 1
-    ) {
-      dispatch(postVideogame(videogame));
-      alert("Videogame created successfully");
-
-      setVideogame({
-        name: "",
-        released: "",
-        image: "",
-        rating: 0,
-        description: "",
-        genre: [],
-        platforms: [],
-      });
-      history.push("/home");
-    } else {
-      alert("Missing data required");
-    }
+    e.preventDefault()
+    if (!errors.name && !errors.description && !errors.rating) {
+      if (!input.name) {
+        alert('The videogame must have a name')
+      } else if (!input.description) {
+        alert('The videogame must have a description')
+      } else if (input.genre.length < 1) {
+        alert('The video game must have at least one genre')
+      } else if (input.platforms.length < 1) {
+        alert('The videogame must have at least one platform')
+      } else {
+        console.log(input)
+        dispatch(postVideogame(input))
+        alert('Videogame created successfully')
+        setInput({
+          name: "",
+          description: "",
+          image: "",
+          rating: 0,
+          released: "",
+          genre: [],
+          platforms: [],
+        })
+        history.push('/home')
+      }
   };
+}
 
   return (
     <div className="create">
@@ -129,46 +134,50 @@ export default function VideogameCreate() {
             type="text"
             name="name"
             placeholder="Name.."
-            value={videogame.name}
+            value={input.name}
             onChange={(e) => handleChange(e)}
-          />
+            />
+        
 
           <input
             className="inputDescription"
             type="text"
             placeholder="Description.."
-            value={videogame.description}
+            value={input.description}
             name="description"
             onChange={(e) => handleChange(e)}
-          />
+            />
+          
+          
 
           <input
             className="inputReleased"
             type="text"
             placeholder="dd-mm-yyyy.."
-            value={videogame.released}
+            value={input.released}
             name="released"
             onChange={(e) => handleChange(e)}
-          />
+            />
 
           <input
             className="inputImage"
             type="text"
             placeholder="Image.."
-            value={videogame.image}
+            value={input.image}
             name="image"
             onChange={(e) => handleChange(e)}
-          />
+            />
 
           <label className="labelRating">Rating: </label>
           <input
             className="inputRating"
             placeholder="Rating.."
             type="number"
-            value={videogame.rating}
+            value={input.rating}
             name="rating"
             onChange={(e) => handleChange(e)}
-          />
+            />
+
         </div>
 
           <div>
@@ -176,24 +185,23 @@ export default function VideogameCreate() {
             <br />
           </div>
 
-          <select className="selectBox" onChange={(e) => handleGenre(e)}>
-            <option disabled={videogame.genre.length}>Select Genre</option>
+          <select className="selectBox" onChange={e => handleGenre(e)}>
+            <option disabled={input.genre.length > 0}>Select Genre</option>
             {genres.map((g) => (
               <option value={g.name}>{g.name}</option>
-            ))}
+              ))}
           </select>
 
           <div className="cajita">
-            <label>Genres Selected: </label>
             <br />
-            {videogame.genre?.map((e) => (
+            {input.genre.map(e => (
               <div className="cajitaElemento">
                 <span>{e}</span>
                 <button
                   className="botonX"
                   onClick={() => handleDeleteGenre(e)}
                   type="reset"
-                > X </button>
+                  > X </button>
               </div>
             ))}
           </div>
@@ -203,7 +211,7 @@ export default function VideogameCreate() {
             <label>Platforms: </label>
             <br />
             <select className="selectBox" onChange={(e) => handlePlatform(e)}>
-              <option disabled={videogame.platforms.length}>
+              <option disabled={input.platforms.length > 0}>
                 Select Platform
               </option>
               {platforms.map((p) => (
@@ -214,35 +222,29 @@ export default function VideogameCreate() {
             </select>
 
             <div>
-              <label>Platforms Selected:</label>
               <br />
-              {videogame.platforms?.map((e) => (
+              {input.platforms.map((e) => (
                 <div className="cajitaElemento">
                   <span>{e}</span>
                   <button
                     className="botonX"
                     onClick={() => handleDeletePlatforms(e)}
                     type="reset"
-                  > X </button>
+                    > X </button>
                 </div>
               ))}
             </div>
           </div>
         
-        <br />
-        <div className="errores">
-          {errors.name && <span className="error">{errors.name}</span>}
-          {errors.description && (
-            <span className="error">{errors.description}</span>
-          )}
-          {errors.released && <span className="error">{errors.released}</span>}
-          {errors.rating && <span className="error">{errors.rating}</span>}
-          {errors.genre && <span className="error">{errors.genre}</span>}
-          {errors.platforms && (
-            <span className="error">{errors.platforms}</span>
-          )}
-        </div>
-        <br />
+       
+          
+          {errors.name && (<p className="error">{errors.name}</p>)}
+          {errors.description && (<p className="error">{errors.description}</p>)}
+          {errors.released && (<p className="error">{errors.released}</p>)}
+          {errors.rating && (<p className="error">{errors.rating}</p>)}
+          
+     
+
         <button className="botonCrear" type="submit">
           Create Videogame
         </button>
