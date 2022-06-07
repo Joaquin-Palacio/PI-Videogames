@@ -23,9 +23,27 @@
     font-size: 21px;
 }
 
+.botonX {
+    font-family: "Arial Black", Gadget, sans-serif;
+    height: 20px;
+    font-size: 10px;
+    justify-content: center;
+    transition: 0.5s;
+    background-color:  rgba(59, 59, 59, 0.80);
+    color: #fff;
+    transition: all 0.3s;
+    cursor: pointer;
+    margin-left: 3px;
+    border: solid white 0.5px;
+}
+.botonX:hover{
+    color:#fff;
+    background-color: #f13106;
+    }
+
 .error{
     color: red;
-    background-color: rgba(255, 255, 255, 0.747);
+    background-color: rgba(255, 255, 255, 0.700);
     align-items: center;
     text-align: center;
     font-size: 18px;
@@ -34,6 +52,19 @@
     margin-top: 18px;
 }
 
+.selectBox{
+    margin: 10px 10px 0;
+    background-color: rgba(59, 59, 59, 0.80);
+    color: #fff;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.cajitaElemento{
+    display: inline-block;    
+    color: rgb(255, 255, 255);     
+    margin: 5px;    
+}
 
 .inputs{
     margin: 20px;

@@ -1,4 +1,4 @@
-.card {
+.CardHome {
     border: none;
     border-radius: 8px;
     color: white;
@@ -8,11 +8,12 @@
     margin: 10px;
     display: inline-flex;
     flex-direction: column;
+    align-items: center;
 }
 a:link{
     text-decoration: none;
 }
-.card:hover{
+.CardHome:hover{
     background-color: rgba(153, 49, 136, 0.700);
 }
 .name {
@@ -29,8 +30,3 @@ a:link{
     margin: auto;
 }
 
-
-.spansCard{
-    display: inline-flex;
-    flex-direction: column;
-}

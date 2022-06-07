@@ -1,19 +1,19 @@
 import React from "react";
-import "./styles/Card.css";
+import './styles/Card.css'
 
 export default function Card({ name, image, genres  }) {
   return (
-    <div className="card">
+    <div className="CardHome">
       <h2 className="name">{name}</h2>
       <h4 className="h4Card">Genres: </h4>
       {genres?.map(e => {
         if(typeof(e) === 'string'){
           return (  
-              <span className="spansCard" key={e.name}>{e}</span>
+              <span key={e}>{e}</span>
           )
         } else {
           return (  
-              <span className="spansCard" key={e.name}>{e.name}</span>                   
+              <span key={e.name}>{e.name}</span>                   
           )
         }
       })}
