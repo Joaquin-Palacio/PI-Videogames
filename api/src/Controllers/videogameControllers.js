@@ -14,12 +14,11 @@ router.get("/", async (req, res, next) => {
     if (name) {
       videogamesInApi = await getApiGames(name);
       videogamesInDb = await getVideoGamesCreated(name);
-      //todo viene en arrays
     } else {
       videogamesInApi = await getApiGames();
       videogamesInDb = await getVideoGamesCreated();
-      //todo viene en arrays
     }
+
     Promise.all([videogamesInApi, videogamesInDb]).then((response) => {
       const [videogamesInApi, videogamesInDb] = response;
 
@@ -56,6 +55,5 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
 
 module.exports = router;

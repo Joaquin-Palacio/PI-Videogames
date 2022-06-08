@@ -12,7 +12,6 @@ export default function CardDetail() {
     dispatch(getDetailsVideogame(id));
   }, [dispatch, id]);
 
-
   const videogame = useSelector((state) => state.details);
 
   return (
@@ -25,7 +24,7 @@ export default function CardDetail() {
                 src={videogame.image}
                 className="imageDetail"
                 alt="Imagen del jueego"
-                />
+              />
               <br></br>
               <h1>{videogame.name}</h1>
               <h3>Genres:</h3>
@@ -33,7 +32,8 @@ export default function CardDetail() {
                 if (typeof e === "string") {
                   return (
                     <span className="type" key={e}>
-                      {e.replace(e[0], e[0].toUpperCase())} | </span>
+                      {e.replace(e[0], e[0].toUpperCase())} |{" "}
+                    </span>
                   );
                 } else {
                   return <span key={e.name}>{e.name} | </span>;
@@ -44,7 +44,8 @@ export default function CardDetail() {
                 if (typeof e === "string") {
                   return (
                     <span className="type" key={e}>
-                      {e.replace(e[0], e[0].toUpperCase())} | </span>
+                      {e.replace(e[0], e[0].toUpperCase())} |{" "}
+                    </span>
                   );
                 } else {
                   return <span key={e.name}>{e.name} | </span>;
@@ -53,11 +54,17 @@ export default function CardDetail() {
             </div>
             <div>
               <div>
-                <h4>Released <br/> {videogame.released}</h4>
+                <h4>
+                  Released <br /> {videogame.released}
+                </h4>
 
-                <h3>Rating <br/> {videogame.rating}</h3>
+                <h3>
+                  Rating <br /> {videogame.rating}
+                </h3>
 
-                <p className="descripcion">{videogame.description.replace(/<[^>]+>/g, '')}</p>
+                <p className="descripcion">
+                  {videogame.description.replace(/<[^>]+>/g, "")}
+                </p>
               </div>
             </div>
           </div>
@@ -66,8 +73,8 @@ export default function CardDetail() {
         )}
       </div>
       <Link to="/home">
-          <button className="botonVolver">Return to Main Page</button>
-        </Link>
+        <button className="botonVolver">Return to Main Page</button>
+      </Link>
     </div>
   );
 }

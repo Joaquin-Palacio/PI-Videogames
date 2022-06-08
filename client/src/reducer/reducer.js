@@ -144,16 +144,15 @@ function rootReducer(state = initialState, action) {
         videogames: filterRating,
       };
 
-    /*  case "POST_VIDEOGAME":
-      return {
-        ...state,
-      }; */
-
     case "GET_DETAILS_VIDEOGAME":
       return {
         ...state,
         details: action.payload,
       };
+    /*  case "POST_VIDEOGAME":
+          return {
+            ...state,
+          }; */
 
     default:
       return state;

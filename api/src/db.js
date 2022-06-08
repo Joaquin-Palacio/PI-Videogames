@@ -34,7 +34,6 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Videogame, Genre, Platform} = sequelize.models;
 
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
 
 Videogame.belongsToMany(Genre,{through:"videogame_genre"})
 Genre.belongsToMany(Videogame,{through:"videogame_genre"})

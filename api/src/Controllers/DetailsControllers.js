@@ -31,26 +31,24 @@ router.get("/:id", async (req, res, next) => {
     } else {
       const gameDetail = await axios(
         `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
-        );
-        let e = gameDetail.data;
-        const detailsObj = {
-          id: e.id,
-          name: e.name,
-         released: e.released,
-         image: e.background_image,
-         rating: e.rating,
-         description: e.description,
-       genres: e.genres,
-       platforms: e.platforms.map(e => e.platform.name),
-    };
-    return res.send(detailsObj);
-  }
+      );
+      let e = gameDetail.data;
+      const detailsObj = {
+        id: e.id,
+        name: e.name,
+        released: e.released,
+        image: e.background_image,
+        rating: e.rating,
+        description: e.description,
+        genres: e.genres,
+        platforms: e.platforms.map((e) => e.platform.name),
+      };
+      return res.send(detailsObj);
+    }
   } catch (error) {
     next(error);
   }
 });
-
-
 
 router.post("/", async (req, res, next) => {
   const { name, description, released, image, rating, platforms, genre } =

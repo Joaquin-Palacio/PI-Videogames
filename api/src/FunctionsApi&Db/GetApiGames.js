@@ -12,8 +12,6 @@ async function getApiGames(name) {
   let pageFour = [];
 
   if (!name) {
-    // Si no existe name proseguira a buscar las paginas:
-    // 0 --> 25
     pageOne = await axios.get(
       `https://api.rawg.io/api/games?key=${API_KEY}&page_size=25`
     );
