@@ -37,8 +37,10 @@ const { Videogame, Genre, Platform} = sequelize.models;
 
 Videogame.belongsToMany(Genre,{through:"videogame_genre"})
 Genre.belongsToMany(Videogame,{through:"videogame_genre"})
-Videogame.belongsToMany(Platform,{through:"videgame_platforms"})
-Platform.belongsToMany(Videogame,{through:"videgame_platforms"})
+Videogame.belongsToMany(Platform,{through:"videogame_platform"})
+Platform.belongsToMany(Videogame,{through:"videogame_platform"})
+
+
 
 
   const allGenres = axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
@@ -51,7 +53,6 @@ Platform.belongsToMany(Videogame,{through:"videgame_platforms"})
       })
     })
   })
- 
 
   const allPlatforms =  axios(`https://api.rawg.io/api/platforms?key=${API_KEY}`)
   .then(response =>response.data.results)
