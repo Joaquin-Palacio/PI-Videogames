@@ -5,12 +5,25 @@ export default function Paginado({
   videogamesPerPage,
   allVideogames,
   paginado,
+ /*  paginadoPrev,
+  paginadoNext */
 }) {
   const pageNumbers = [];
 
   for (let i = 0; i < Math.ceil(allVideogames / videogamesPerPage); i++) {
     pageNumbers.push(i + 1);
   }
+
+  /* const handlePrev = (e) => {
+    e.preventDefault(e)
+    paginadoPrev(1);
+  }
+
+  const handleNext = (e) => {
+    e.preventDefault(e)
+    paginadoNext(1);
+  } */
+
   return (
     <nav>
       <ul className="paginado">
@@ -23,4 +36,11 @@ export default function Paginado({
       </ul>
     </nav>
   );
+
+  {/* <nav> 
+          <div>
+            <button onClick={(e) => handlePrev(e)}>Prev</button>
+            <button onClick={(e) => handleNext(e)}>Next</button>
+          </div>
+  </nav> */}
 }
