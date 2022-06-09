@@ -4,19 +4,35 @@ import { useDispatch } from "react-redux";
 import { getNameVideogames } from "../actions/actions";
 import "./styles/searchBar.css";
 
+
+function validate(input){
+  let error = '';
+  if(input === ''){
+    error = 'Please insert a name';
+  }
+  return error;
+}
+
+
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     e.preventDefault();
     setName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(getNameVideogames(name));
+    if(name !== ""){
+     await dispatch(getNameVideogames(name));
+      setName("")
+    }
+    setError(validate(name))
   };
+  
 
   return (
     <div className="search">
@@ -36,6 +52,10 @@ export default function SearchBar() {
       >
         Search
       </button>
+      {error && (
+        <p className="errorSearch">{error}</p>
+      )
+      }
     </div>
   );
 }
