@@ -37,6 +37,16 @@ export default function Home() {
     setCurrentPage(pageNumber);
   };
 
+  /* const paginadoPrev = (number) => {
+    setCurrentPage(currentPage-number);
+    console.log(currentVideogames);
+  };
+
+  const paginadoNext = (number) => {
+    setCurrentPage(currentPage+number);
+    console.log(currentVideogames);
+  }; */
+
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());
@@ -51,11 +61,13 @@ export default function Home() {
   const handleFilterGenre = (e) => {
     e.preventDefault();
     dispatch(filterVideogamesByGenre(e.target.value));
+    setCurrentPage(1);
   };
 
   const handleFilterPlatform = (e) => {
     e.preventDefault();
     dispatch(filterVideogamesByPlatform(e.target.value));
+    setCurrentPage(1)
   };
 
   const handleFilterRating = (e) => {
@@ -79,27 +91,30 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h1 className="Homeh1">LOLIXGAMES</h1>
-
-      <Link to="/videogame" className="link">
+      {!allVideogames.length? 
+        <img className="pacman" src="https://i.gifer.com/embedded/download/M99a.gif" />
+        :
+     <div>   
+        <h1 className="Homeh1">LOLIXGAMES</h1>
+        <Link to="/videogame" className="link">
         Create Your Videogame
       </Link>
       <button
-        onClick={(e) => {
+      onClick={(e) => {
           handleClick(e);
         }}
         className="botonCargarJuegos"
-      >
+        >
         Reload Videogames
       </button>
 
-      <SearchBar />
+<SearchBar />
 
-      <div>
+<div>
         <select 
           onChange={(e) => handleOrderName(e)} 
           className="botonOrdenar"
-        >
+          >
           <option disabled={order}>Order Alphabetically</option>
           <option value="AZ">A-Z</option>
           <option value="ZA">Z-A</option>
@@ -108,7 +123,7 @@ export default function Home() {
         <select
           onChange={(e) => handleFilterRating(e)}
           className="botonOrdenarRating"
-        >
+          >
           <option disabled={order}>Order by Rating</option>
           <option value="masp">Most Populars</option>
           <option value="menosp">Least Populars</option>
@@ -117,7 +132,7 @@ export default function Home() {
         <select
           onChange={(e) => handleFilterGenre(e)}
           className="botonFiltrarGeneros"
-        >
+          >
           <option value={"All"}>Filter by Genres</option>
           {genres?.map((x) => {
             return <option value={x.name}>{x.name}</option>;
@@ -137,7 +152,7 @@ export default function Home() {
         <select
           onChange={(e) => handleFilterCreated(e)}
           className="botonFiltrarApiCreados"
-        >
+          >
           <option value="All">All Videogames</option>
           <option value="Api">Videogames API</option>
           <option value="Created">Videogames Created</option>
@@ -147,6 +162,8 @@ export default function Home() {
           videogamesPerPage={videogamesPerPage}
           allVideogames={allVideogames.length}
           paginado={paginado}
+          /*  paginadoPrev={paginadoPrev}
+          paginadoNext={paginadoNext} */
         />
 
         {currentVideogames?.map((e) => {
@@ -158,12 +175,14 @@ export default function Home() {
                   image={e.image}
                   genres={e.genres}
                   key={e.id}
-                />
+                  />
               </Link>
             </fragment>
           );
         })}
       </div>
+      </div>
+        }
     </div>
-  );
-}
+    );
+  }
