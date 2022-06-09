@@ -1,16 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { getDetailsVideogame } from "../actions/actions";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { getDetailsVideogame, deleteVideogame } from "../actions/actions";
 import "./styles/CardDetail.css";
 
 export default function CardDetail() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = useParams();
+
 
   useEffect(() => {
     dispatch(getDetailsVideogame(id));
   }, [dispatch, id]);
+
+  const handleDelete = (gameId) => {
+    if(window.confirm("Are you sure you want to delete the game?") === true){
+      dispatch(deleteVideogame(gameId));
+      history.push('/home');
+      alert("Videogame deleted successfully")
+    }
+  }
 
   const videogame = useSelector((state) => state.details);
 
@@ -69,8 +79,16 @@ export default function CardDetail() {
             </div>
           </div>
         ) : (
-          <h1 className="cargandoDetalle">Loading...</h1>
+          <div>
+            <img classname="loading" src="https://i.gifer.com/embedded/download/M99a.gif"/>
+          </div>
         )}
+      <div className="delete">
+        {videogame.createdInDb && (
+          <button onClick={() => handleDelete(id)}>Delete videogame</button>
+        )
+        }
+      </div>  
       </div>
       <Link to="/home">
         <button className="botonVolver">Return to Main Page</button>

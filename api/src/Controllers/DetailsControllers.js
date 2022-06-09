@@ -55,7 +55,7 @@ router.post("/", async (req, res, next) => {
     req.body;
   try {
     const newGame = await Videogame.create({
-      name,
+      name: name.toUpperCase(),
       description,
       released,
       rating,
@@ -81,5 +81,20 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const game = await Videogame.findByPk(id);
+    if(!game){
+      res.status(404).send('videogame is not existed');
+    }
+      await game.destroy()
+      res.send('game deleted successfully');
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = router;
