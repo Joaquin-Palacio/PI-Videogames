@@ -30,3 +30,23 @@
 .botonVolver:hover{
     background-color: rgb(47, 119, 202);
 }
+/* 
+.botonDelete{
+     color: #fff;
+     background-color: rgba(59, 59, 59, 0.80);
+     border: none;
+     border-radius: 6px;
+     font-size: 14px;
+     margin-left: 722px;
+     margin-bottom: 20px;
+}
+.botonDelete:hover{
+    font-size: 15px;
+    background-color:  rgba(129, 129, 129, 0.63);
+} */
+
+.loading{
+    margin-top: 120px;
+    height: 100%;
+    width: 100%;
+}
