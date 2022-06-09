@@ -17,7 +17,7 @@ function rootReducer(state = initialState, action) {
 
     case "FILTER_BY_GENRE":
       const allVideogames = state.allVideogames;
-      if (action.payload === "all") {
+      if (action.payload === "All") {
         return {
           ...state,
           videogames: allVideogames,
@@ -41,7 +41,7 @@ function rootReducer(state = initialState, action) {
 
     case "FILTER_BY_PLATFORM":
       const allGames = state.allVideogames;
-      if (action.payload === "all") {
+      if (action.payload === "All") {
         return {
           ...state,
           videogames: allGames,
