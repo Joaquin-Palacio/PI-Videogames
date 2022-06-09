@@ -4,7 +4,7 @@ import "./styles/Card.css";
 export default function Card({ name, image, genres}) {
   return (
     <div className="CardHome">
-      <h2 className="name">{name}</h2>
+      <h1 className="name">{name}</h1>
       <h4 className="h4Card">Genres: </h4>
       {genres?.map((e) => {
         if (typeof e === "string") {
