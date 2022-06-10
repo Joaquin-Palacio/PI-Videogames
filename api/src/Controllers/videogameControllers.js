@@ -34,7 +34,7 @@ router.get("/", async (req, res, next) => {
       if (name) {
         let onlyfifteen = allVideogames
           .filter((e) => e.name.includes(name.toUpperCase()))
-          .slice(0, 16);
+          .slice(0, 15);
         res.send(onlyfifteen);
       } else if (!allVideogames.length) {
         return res.send("No response").status(404);

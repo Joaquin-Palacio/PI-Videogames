@@ -50,6 +50,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+
 router.post("/", async (req, res, next) => {
   const { name, description, released, image, rating, platforms, genre } =
     req.body;
@@ -82,19 +83,6 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete('/:id', async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const game = await Videogame.findByPk(id);
-    if(!game){
-      res.status(404).send('videogame is not existed');
-    }
-      await game.destroy()
-      res.send('game deleted successfully');
-  } catch (error) {
-    next(error);
-  }
-});
 
 
 module.exports = router;
