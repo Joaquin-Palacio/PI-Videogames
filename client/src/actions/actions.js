@@ -38,17 +38,6 @@ export function postVideogame(payload) {
   };
 }
 
-export function deleteVideogame(id){
-  return  function(dispatch){
-    var json =  axios.delete(`http://localhost:3001/videogame/${id}`);
-    return dispatch({
-      type: "DELETE_VIDEOGAME",
-      payload: json.data
-    })
-  }
-}
-
-
 export function getDetailsVideogame(id) {
   return async function (dispatch) {
     try {
