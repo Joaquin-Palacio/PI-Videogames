@@ -15,4 +15,5 @@
 .boton:hover {
     color: #fff;
     background-color: rgb(47, 119, 202);
+    transition: 0.6s;
 }

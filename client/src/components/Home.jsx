@@ -92,7 +92,7 @@ export default function Home() {
   return (
     <div className="home">
       {!allVideogames.length? 
-        <img className="pacman" src="https://i.gifer.com/embedded/download/M99a.gif" />
+        <img className="pacman" src="https://i.stack.imgur.com/87Tpa.gif" />
         :
      <div>   
         <h1 className="Homeh1">LOLIXGAMES</h1>

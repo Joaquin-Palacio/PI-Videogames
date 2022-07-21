@@ -12,6 +12,7 @@
 }
 .CardHome:hover {
   background-color: rgba(153, 49, 136, 0.7);
+  transition: 0.7s;
 }
 
 a:link {

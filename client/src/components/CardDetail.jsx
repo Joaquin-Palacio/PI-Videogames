@@ -73,7 +73,7 @@ export default function CardDetail() {
           </div>
         ) : (
           <div>
-            <img classnName="loading" src="https://i.gifer.com/embedded/download/M99a.gif"/>
+            <img classnName="loading" src="https://i.stack.imgur.com/87Tpa.gif"/>
           </div>
         )}  
       </div>
