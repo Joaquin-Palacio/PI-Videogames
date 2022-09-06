@@ -1,7 +1,6 @@
 const { Platform } = require("../db");
 async function platforms() {
-  console.log("Guardando generos en base de datos");
-  console.log("Espera por favor...");
+  console.log("Saving Platforms. Wait Please");
   //const allGenres = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
   let platform = [
     {
@@ -211,7 +210,7 @@ async function platforms() {
     });
   });
   await Promise.all(platforms);
-  console.log("plataformas guardados");
-  console.log("Back levantado exitosamente✔️ , PUEDES SEGUIR CODEANDO!");
+  console.log("Platforms Saved ✔");
+
 }
 module.exports = { platforms };

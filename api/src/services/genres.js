@@ -1,7 +1,6 @@
 const { Genre } = require("../db");
 async function genres() {
-  console.log("Guardando generos en base de datos");
-  console.log("Espera por favor...");
+  console.log("Saving Genres. Wait Please");
   //const allGenres = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
   let genres = [
     {
@@ -75,8 +74,7 @@ async function genres() {
     });
   });
   await Promise.all(generos);
-  console.log("Generos guardados");
-  console.log("Back levantado exitosamente✔️ , PUEDES SEGUIR CODEANDO!");
+  console.log("Genres Saved ✔");
 }
 
 module.exports = { genres };
