@@ -41,7 +41,7 @@ export function filterByGenre(payload) {
 
 export function filterByPlatform(payload) {
   return {
-    type: "FILTER_BY_GENRE",
+    type: "FILTER_BY_PLATFORM",
     payload,
   };
 }
