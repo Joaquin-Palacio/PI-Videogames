@@ -20,12 +20,22 @@ function rootReducer(state = initialState, action) {
         ...state,
         genres: action.payload,
       };
-
     case "GET_PLATFORMS":
       return {
         ...state,
         platforms: action.payload,
       };
+
+    // case 'FILTER_BY_GENRE':
+    //  const allVideogames = state.allVideogames
+    //  const genreFiltered = action.payload === 'all'? allVideogames: allVideogames
+    //  .filter(el=> el.genres.includes(action.payload))
+    //  return{
+
+    //     ...state,
+    //     videogames: genreFiltered
+
+    //  }
 
     case "FILTER_BY_GENRE":
       const allVideogames = state.allVideogames;
@@ -39,10 +49,14 @@ function rootReducer(state = initialState, action) {
           for (let i = 0; i < el.genres.length; i++) {
             if (el.genres[i].name === action.payload) {
               return true;
+            } else if (el.genres[i] === action.payload) {
+              return true;
             }
           }
+
           return false;
         });
+
         return {
           ...state,
           videogames: [...filterByGenre],
@@ -74,6 +88,15 @@ function rootReducer(state = initialState, action) {
           videogames: [...filterByPlatform],
         };
       }
+    //  const platformFiltered = action.payload === 'all'? allVideogamesforplatforms: allVideogamesforplatforms
+    //  .filter(el=> el.platforms
+    // .includes(action.payload))
+    //  return{
+
+    //     ...state,
+    //     videogames: platformFiltered
+
+    //  }
 
     case "FILTER_BY_CREATED":
       const filterCreated =
@@ -85,7 +108,6 @@ function rootReducer(state = initialState, action) {
         videogames:
           action.payload === "all" ? state.allVideogames : filterCreated,
       };
-      
     case "FILTER_BY_ALPHA":
       const filterAlpha =
         action.payload === "asc"
@@ -111,7 +133,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: filterAlpha,
       };
-
     case "FILTER_BY_RATING":
       const filterRating =
         action.payload === "asc"
@@ -137,7 +158,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         videogames: filterRating,
       };
-
     case "GET_VIDEOGAME_BY_NAME":
       return {
         ...state,
@@ -148,7 +168,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
       };
-
     case "GET_DETAIL":
       return {
         ...state,

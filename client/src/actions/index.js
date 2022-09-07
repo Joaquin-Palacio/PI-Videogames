@@ -2,27 +2,26 @@ import axios from "axios";
 
 export function getAllVideogames() {
   return async function (dispatch) {
-    var games = await axios.get("/videogames");
+    var videogame = await axios("/videogames");
     return dispatch({
       type: "GET_ALL_VIDEOGAMES",
-      payload: games.data,
+      payload: videogame.data,
     });
   };
 }
 
 export function getGenres() {
   return async function (dispatch) {
-    var allGenres = await axios.get("/genres");
+    var allGenres = await axios("/genres");
     return dispatch({
       type: "GET_GENRES",
       payload: allGenres.data,
     });
   };
 }
-
 export function getPlatforms() {
   return async function (dispatch) {
-    var allPlatforms = await axios.get("/platforms");
+    var allPlatforms = await axios("/platforms");
     return dispatch({
       type: "GET_PLATFORMS",
       payload: allPlatforms.data,
@@ -30,22 +29,24 @@ export function getPlatforms() {
   };
 }
 
-//? ------------------- FILTROS -------------------------- //
+//-------------------FILTROS---------------------------///
+//ORDENAMIENTO POR GENERO
 
-export function filterByGenre(payload) {
+export function filterVideogameByGenre(payload) {
   return {
     type: "FILTER_BY_GENRE",
     payload,
   };
 }
-
-export function filterByPlatform(payload) {
+//ORDENAMIENTO POR PLATAFORMA
+export function filterVideogameByPlatform(payload) {
   return {
     type: "FILTER_BY_PLATFORM",
     payload,
   };
 }
 
+// ORDENAMIENTO POR ORIGEN
 export function filterByCreated(payload) {
   return {
     type: "FILTER_BY_CREATED",
@@ -53,12 +54,16 @@ export function filterByCreated(payload) {
   };
 }
 
-export function filterByAzZa(payload) {
+//ORDENAMIENTO ALFABETICO O
+
+export function filterByAlpha(payload) {
   return {
-    type: "FILTER_AZ_ZA",
+    type: "FILTER_BY_ALPHA",
     payload,
   };
 }
+
+//ORDENAMIENTO POR RATING///
 
 export function filterByRating(payload) {
   return {
@@ -67,14 +72,14 @@ export function filterByRating(payload) {
   };
 }
 
-//? ------------ Busca por nombre y solo trae 15 resultados ----------- //
-export function getVideogameByName(name) {
+/// Buscar todos los luegos por nombre con limite 15
+export function getVidogamesByName(name) {
   return async function (dispatch) {
     try {
-      var videogameName = await axios.get(`/videogames?name=${name}`);
+      var videogameWithName = await axios(`/videogames?name=${name}`);
       return dispatch({
         type: "GET_VIDEOGAME_BY_NAME",
-        payload: videogameName.data,
+        payload: videogameWithName.data,
       });
     } catch (error) {
       console.log(error);
@@ -82,28 +87,32 @@ export function getVideogameByName(name) {
   };
 }
 
-export function getVideogameDetail(id) {
+///Crear videojuego
+
+export function postVideogameCreated(payload) {
   return async function (dispatch) {
     try {
-      var videogameDetail = await axios.get(`/videogame/${id}`);
+      const videogameCreated = axios.post("/videogame", payload);
+      return videogameCreated;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+//-----------DETAIL
+
+export function getDetail(id) {
+  return async function (dispatch) {
+    try {
+      let videogameDetail = await axios(`/videogame/${id}`);
+
       return dispatch({
-        type: "GET_VIDEOGAME_DETAIL",
+        type: "GET_DETAIL",
         payload: videogameDetail.data,
       });
     } catch (error) {
       console.log(error);
     }
   };
-}
-
-//! mmmm..
-export function postNewVideogame(payload) {
-  return async function (dispatch) {
-    try {
-       const videogameCreated = await axios.post("/videogame", payload);
-       return videogameCreated;
-    } catch (error) {
-      console.log(error);
-    }
-  }
 }
