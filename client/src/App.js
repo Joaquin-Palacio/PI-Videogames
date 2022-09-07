@@ -10,10 +10,14 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home/:id" component={CardDetail} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/videogames/create" component={VideogameCreate} />
+          <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/home/:id" element={<CardDetail />} />
+          <Route
+            exact
+            path="/videogames/create"
+            element={<VideogameCreate />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
