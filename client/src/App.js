@@ -13,10 +13,7 @@ function App() {
           <Route exact path="/" element={<LandingPage />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/home/:id" element={<CardDetail />} />
-          <Route
-            exact
-            path="/videogames/create"
-            element={<VideogameCreate />}
+          <Route exact path="/videogames/create" element={<VideogameCreate />}
           />
         </Routes>
       </div>

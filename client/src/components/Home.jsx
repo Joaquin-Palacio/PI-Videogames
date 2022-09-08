@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getAllVideogames,
   filterVideogameByGenre,
@@ -11,17 +12,20 @@ import {
   filterByRating,
   filterVideogameByPlatform,
 } from "../actions/index";
-import { Link } from "react-router-dom";
 import Paginado from "./Paginado.jsx";
 import Card from "./Card";
 import SearchBar from "./SearchBar.jsx";
 import "./styles/Home.css";
+
+
 export default function Home() {
+
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   const allVideogamesLoad = useSelector((state) => state.allVideogames);
   const genres = useSelector((state) => state.genres);
   const platforms = useSelector((state) => state.platforms);
+
   const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [videogamesPerPage, setVideogamePerPage] = useState(15);
@@ -35,13 +39,14 @@ export default function Home() {
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
   useEffect(() => {
     dispatch(getAllVideogames());
     dispatch(getGenres());
     dispatch(getPlatforms());
   }, [dispatch]);
 
-  function handleClick(e) {
+  function handleClick() {
     dispatch(getAllVideogames());
   }
 
@@ -49,6 +54,7 @@ export default function Home() {
     e.preventDefault();
     dispatch(filterVideogameByGenre(e.target.value));
   }
+
   function handleFilterPlatform(e) {
     e.preventDefault();
     dispatch(filterVideogameByPlatform(e.target.value));
@@ -65,6 +71,7 @@ export default function Home() {
     setCurrentPage(1);
     setOrder(e.target.value);
   }
+
   function handleFilterByRating(e) {
     e.preventDefault();
     dispatch(filterByRating(e.target.value));
@@ -143,13 +150,13 @@ export default function Home() {
               </select>
 
               <div className="SearchBar">
-                <SearchBar></SearchBar>
+                <SearchBar />
               </div>
             </div>
 
             <div>
-              <Link to="videogames/create">
-                <button className="buttonHome">+ CREATE</button>
+              <Link to="/videogames/create">
+                <button className="buttonHome">CREATE</button>
               </Link>
               <button
                 className="buttonHome"
@@ -179,8 +186,6 @@ export default function Home() {
                       name={e.name}
                       image={e.image}
                       genres={e.genres}
-                      platforms={e.platforms}
-                      rating={e.rating}
                     />
                   </Link>
                 );
@@ -189,7 +194,10 @@ export default function Home() {
               <div className="errorFound">
                 <h1>Sorry!, the searched video game is not found</h1>
                 <h2>Error 404</h2>
-                <img src="https://www.pngplay.com/wp-content/uploads/6/Game-Over-Yellow-Transparent-PNG.png" alt="img" />
+                <img
+                  src="https://www.pngplay.com/wp-content/uploads/6/Game-Over-Yellow-Transparent-PNG.png"
+                  alt="img"
+                />
               </div>
             )}
           </div>
