@@ -27,7 +27,7 @@ a:link {
   font-size: 16px;
   margin-bottom: 1.5rem;
 }
-.card_name:hover{
+.card_name:hover {
   font-size: 17px;
   color: rgba(202, 29, 145, 0.9);
   transition: 0.7s;
@@ -38,7 +38,6 @@ a:link {
   height: 200px;
   border-radius: 6px;
 }
-
 
 .card_genres_title {
   font-size: 18px;
