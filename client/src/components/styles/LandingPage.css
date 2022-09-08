@@ -1,0 +1,26 @@
+.container_landing {
+  margin: 150px
+}
+
+.landing_title {
+  color: white;
+  margin-bottom: 80px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.landing_btn {
+  background-color: rgba(202, 29, 145, 0.75);
+  color: white;
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 20px;
+  border: dashed;
+}
+.landing_btn:hover {
+  transition: 0.5s;
+  background-color: rgba(17, 160, 243, 0.80);
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 22px;
+  border: dashed;
+}

@@ -4,7 +4,7 @@ a:link {
 
 .container_card {
   border-radius: 8px;
-  border: solid 2px rgba(17, 160, 243, 0.90);
+  border: solid 2px rgba(17, 160, 243, 0.9);
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.60);
   width: 315px;
