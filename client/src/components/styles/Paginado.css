@@ -1,0 +1,26 @@
+.paginado{
+  display: inline-block;
+}
+
+.paginado li {
+  display: inline;
+}
+
+.paginado a {
+  color: white;
+  padding: 8px 10px;
+  margin: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgba(2, 162, 255, 0.9);
+}
+
+.paginado a:hover{
+  background-color: rgba(202, 29, 145, 0.9);
+  transition: 0.5s; 
+}
+
+
