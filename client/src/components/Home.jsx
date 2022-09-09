@@ -82,8 +82,8 @@ export default function Home() {
       {!allVideogamesLoad.length ? (
         <div className="home-loading">
           <img
-            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif"
-            alt="gift"
+            src="https://tenor.com/view/colores-movimiento-luces-formas-gif-19676825"
+            alt="LOADING.."
           />
         </div>
       ) : (
@@ -96,7 +96,7 @@ export default function Home() {
                   handleFilterByAlpha(e);
                 }}
               >
-                <option disabled={order}>Alpha order</option>
+                <option disabled={order}>Order</option>
                 <option value="asc">A-Z</option>
                 <option value="desc">Z-A </option>
               </select>
@@ -109,8 +109,8 @@ export default function Home() {
                 }}
               >
                 <option disabled={order}>Select Rating</option>
-                <option value="asc">to the least popular</option>
-                <option value="des">to the most popular</option>
+                <option value="asc">Least Popular</option>
+                <option value="des">Most Popular</option>
               </select>
 
               <select
@@ -146,27 +146,24 @@ export default function Home() {
                 <option value="api">Existing</option>
                 <option value="created">Created</option>
               </select>
-
-              <div className="home-searchBar">
-                <SearchBar />
-              </div>
+            </div>
+            <div>
+              <SearchBar />
             </div>
           </div>
-
-          <Link to="/videogames/create">
-            <button className="home-btn-create">CREATE</button>
-          </Link>
-          <button
-            className="home-btn-reload"
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            Reload Video Games
-          </button>
-          <Link to="/">
-            <button className="home-btn-backLanding">EXIT</button>
-          </Link>
+          <div className="home-buttons">
+            <Link to="/videogames/create">
+              <button className="home-btn-create">Create Video game</button>
+            </Link>
+            <button
+              className="home-btn-reload"
+              onClick={(e) => {
+                handleClick(e);
+              }}
+            >
+              Reload Page
+            </button>
+          </div>
 
           <div>
             <Paginado
@@ -184,7 +181,7 @@ export default function Home() {
               })
             ) : (
               <div className="home-error">
-                <h1>Sorry!, the searched video game is not found</h1>
+                <h1>Sorry, Your Search Had No Results 👎</h1>
                 <img
                   src="https://media.giphy.com/media/dUqu8On8QYJoFTj5FR/giphy.gif"
                   alt="gift"

@@ -12,7 +12,7 @@
   background-color: rgba(202, 29, 145, 0.75);
   color: white;
   font-size: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 20px;
   border: dashed;
 }
@@ -20,7 +20,7 @@
   transition: 0.5s;
   background-color: rgba(17, 160, 243, 0.80);
   font-size: 20px;
-  border-radius: 8px;
+  border-radius: 30px;
   padding: 22px;
   border: dashed;
 }

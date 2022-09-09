@@ -8,7 +8,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top:  0px;
+  margin-left: 4rem;
+  margin-top: 10px
 }
 
 .home-select {
@@ -19,30 +20,61 @@
   border-radius: 8px;
   margin: 3px;
   margin-left:3px;
-  margin-top: 3px;
+  margin-top: 12px;
+  border: 1px solid rgba(17, 160, 243, 0.9);
+}
+.home-select:hover {
+  border: solid 1px rgba(202, 29, 145, 0.9);
+  transition: 0.5s;
 }
 
 .probando {
   display: flex;
 }
 
-
+.home-buttons {
+  display: flex;
+  justify-content:space-between;
+  margin-top: 0.5rem;
+}
 .home-btn-create {
-
+  font-size: 15px;
+  border: solid 2px rgba(202, 29, 145, 0.9);
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  padding: 7px;
+  margin-left: 4.3rem;
+}
+.home-btn-create:hover {
+  transition: 0.5s;
+  border: solid 2px rgba(17, 160, 243, 0.9);
 }
 
 .home-btn-reload {
-
+  font-size: 15px;
+  border: solid 1px rgba(17, 160, 243, 0.9);
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  padding: 7px;
+  margin-right: 5.9rem;
+}
+.home-btn-reload:hover {
+  transition: 0.5s;
+  border: solid 1px rgba(202, 29, 145, 0.9);
 }
 
-.home-btn-backLanding {
-
+.home-loading {
+  align-items: center;
+  margin-top: 10rem;
+  color: white;
 }
 
-.home-error {
-
+.home-error h1 {
+  color: white;
+  background-color: black;
 }
 
-/* .home-loading {
 
-} */
+
