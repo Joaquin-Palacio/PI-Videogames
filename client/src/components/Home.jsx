@@ -17,9 +17,7 @@ import Card from "./Card";
 import SearchBar from "./SearchBar.jsx";
 import "./styles/Home.css";
 
-
 export default function Home() {
-
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
   const allVideogamesLoad = useSelector((state) => state.allVideogames);
@@ -80,20 +78,20 @@ export default function Home() {
   }
 
   return (
-    <div className="allHome">
+    <div className="container-home">
       {!allVideogamesLoad.length ? (
-        <div className="loading">
+        <div className="home-loading">
           <img
             src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/04de2e31234507.564a1d23645bf.gif"
-            alt=""
+            alt="gift"
           />
         </div>
       ) : (
         <div>
-          <div>
-            <div className="Filters_Container">
+          <div className="probando">
+            <div className="home-filters">
               <select
-                class="custom-select"
+                className="home-select"
                 onChange={(e) => {
                   handleFilterByAlpha(e);
                 }}
@@ -104,7 +102,7 @@ export default function Home() {
               </select>
 
               <select
-                class="custom-select"
+                className="home-select"
                 id="ratingSelect"
                 onChange={(e) => {
                   handleFilterByRating(e);
@@ -116,7 +114,7 @@ export default function Home() {
               </select>
 
               <select
-                class="custom-select"
+                class="home-select"
                 name="genres"
                 onChange={(e) => handleFilterGenre(e)}
               >
@@ -128,7 +126,7 @@ export default function Home() {
               </select>
 
               <select
-                class="custom-select"
+                class="home-select"
                 name="platforms"
                 onChange={(e) => handleFilterPlatform(e)}
               >
@@ -140,7 +138,7 @@ export default function Home() {
               </select>
 
               <select
-                class="custom-select"
+                class="home-select"
                 id="originSelect"
                 onChange={(e) => handleFilterByCreated(e)}
               >
@@ -149,28 +147,26 @@ export default function Home() {
                 <option value="created">Created</option>
               </select>
 
-              <div className="SearchBar">
+              <div className="home-searchBar">
                 <SearchBar />
               </div>
             </div>
-
-            <div>
-              <Link to="/videogames/create">
-                <button className="buttonHome">CREATE</button>
-              </Link>
-              <button
-                className="buttonHome"
-                onClick={(e) => {
-                  handleClick(e);
-                }}
-              >
-                Reload Video Games
-              </button>
-              <Link to="/">
-                <button className="buttonHome">EXIT</button>
-              </Link>
-            </div>
           </div>
+
+          <Link to="/videogames/create">
+            <button className="home-btn-create">CREATE</button>
+          </Link>
+          <button
+            className="home-btn-reload"
+            onClick={(e) => {
+              handleClick(e);
+            }}
+          >
+            Reload Video Games
+          </button>
+          <Link to="/">
+            <button className="home-btn-backLanding">EXIT</button>
+          </Link>
 
           <div>
             <Paginado
@@ -182,21 +178,16 @@ export default function Home() {
               currentVideogames?.map((e) => {
                 return (
                   <Link to={"/home/" + e.id}>
-                    <Card
-                      name={e.name}
-                      image={e.image}
-                      genres={e.genres}
-                    />
+                    <Card name={e.name} image={e.image} genres={e.genres} />
                   </Link>
                 );
               })
             ) : (
-              <div className="errorFound">
+              <div className="home-error">
                 <h1>Sorry!, the searched video game is not found</h1>
-                <h2>Error 404</h2>
                 <img
-                  src="https://www.pngplay.com/wp-content/uploads/6/Game-Over-Yellow-Transparent-PNG.png"
-                  alt="img"
+                  src="https://media.giphy.com/media/dUqu8On8QYJoFTj5FR/giphy.gif"
+                  alt="gift"
                 />
               </div>
             )}

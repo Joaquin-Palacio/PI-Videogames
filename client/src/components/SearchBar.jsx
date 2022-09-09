@@ -21,20 +21,20 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="containerSearch">
+    <div className="container-searchBar">
       <input
         type="text"
-        className="inputSearch"
+        className="searchBar-input"
         name="name"
-        placeholder="search game..."
+        placeholder="Search Videogames..."
         onChange={(e) => handleInputChange(e)}
       />
       <button
-        className="buttonSearch"
+        className="searchBar-btn"
         type="submit"
         onClick={(e) => handleSubmit(e)}
       >
-        Search
+        Search 
       </button>
     </div>
   );

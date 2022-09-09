@@ -1,0 +1,48 @@
+.container-home {
+  justify-content: center;
+  position: relative;
+}
+
+.home-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top:  0px;
+}
+
+.home-select {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  padding: 4px;
+  border-radius: 8px;
+  margin: 3px;
+  margin-left:3px;
+  margin-top: 3px;
+}
+
+.probando {
+  display: flex;
+}
+
+
+.home-btn-create {
+
+}
+
+.home-btn-reload {
+
+}
+
+.home-btn-backLanding {
+
+}
+
+.home-error {
+
+}
+
+/* .home-loading {
+
+} */
