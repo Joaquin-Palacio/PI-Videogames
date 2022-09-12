@@ -1,0 +1,71 @@
+.container-detail {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.detail-card {
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+.detail-card h1:hover {
+  transition: 0.5s;
+  color: rgba(202, 29, 145, 0.9);
+}
+
+.detail-image {
+  float: left;
+  width: 500px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.detail-description {
+  margin:10px;
+}
+.detail-description h3:hover {
+  transition: 0.5s;
+  color: rgba(202, 29, 145, 0.9);
+}
+
+.detail-released {
+  display: inline-block;
+  margin-right: 20rem;
+}
+.detail-released h4:hover {
+  transition: 0.5s;
+  color: rgba(202, 29, 145, 0.9);
+}
+
+.detail-rating {
+  display: inline-block;
+}
+.detail-rating h4:hover {
+  transition: 0.5s;
+  color: rgba(202, 29, 145, 0.9);
+}
+
+.detail-gen-plat{
+  margin-left: 33rem;
+  padding-bottom: 10px;
+}
+.detail-gen-plat h3:hover {
+  transition: 0.5s;
+  color: rgba(202, 29, 145, 0.9);
+}
+
+.detail-btn-back {
+  background-color:rgba(0, 0, 0, 0.60);
+  color: white;
+  border: 1px solid rgba(202, 29, 145, 0.9);
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-right: 50rem;
+  padding: 5px;
+}
+.detail-btn-back:hover {
+  transition: 0.5s;
+  border: 1px solid rgba(17, 160, 243, 0.9);
+  font-size: 19px;
+}
+
