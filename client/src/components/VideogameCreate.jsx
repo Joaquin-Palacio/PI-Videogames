@@ -18,13 +18,10 @@ function validate(videogame) {
     errors.name = "The name of the video game is required";
   } else if (!videogame.description) {
     errors.description = "Add a description of your video game";
-  } else if (
-    parseFloat(videogame.rating) < 1 ||
-    parseFloat(videogame.rating) > 5
-  ) {
+  } else if (parseFloat(videogame.rating) < 1 || parseFloat(videogame.rating) > 5) {
     errors.rating = "The rating must be a number from 1 to 5";
   } else if (!expresionDate.date.test(videogame.released)) {
-    errors.released = ' You must enter date with "dd-mm-yyyy" format ';
+    errors.released = 'You must enter date with "dd-mm-yyyy" format';
   }
   return errors;
 }
@@ -65,16 +62,22 @@ export default function AddVideogame() {
   }
 
   function handleSelectGenre(e) {
-    setVideogame({
-      ...videogame,
-      genre: [...videogame.genre, e.target.value],
-    });
+    if(!videogame.genre.includes(e.target.value)){
+      setVideogame({
+        ...videogame,
+        genre: [...videogame.genre, e.target.value],
+      });
+    }
   }
+  
+
   function handleSelectPlatforms(e) {
-    setVideogame({
-      ...videogame,
-      platforms: [...videogame.platforms, e.target.value],
-    });
+    if(!videogame.platforms.includes(e.target.value)){
+      setVideogame({
+        ...videogame,
+        platforms: [...videogame.platforms, e.target.value],
+      });
+    }
   }
 
   function handleDeleteGenres(el) {
@@ -92,7 +95,7 @@ export default function AddVideogame() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!errors.name && !errors.description && !errors.rating) {
+    if (!errors.name && !errors.description && !errors.rating && !errors.released) {
       if (!videogame.name) {
         alert("You must add a name");
       } else if (!videogame.description) {
@@ -103,7 +106,7 @@ export default function AddVideogame() {
         alert("You must add at least one platform");
       } else {
         dispatch(postVideogameCreated(videogame));
-        alert("Videogame Created!");
+        alert("Video Game Created Successfully");
 
         setVideogame({
           name: "",
@@ -117,7 +120,7 @@ export default function AddVideogame() {
         navigate("/home");
       }
     } else {
-      alert("Faltan datos necesarios para crear el videojuego");
+      alert("Missing Data Required");
     }
   }
 
@@ -132,7 +135,7 @@ export default function AddVideogame() {
       </div>
 
       <div className="container-form">
-        <h1>¡Add a new videogame!</h1>
+        <h1>Create or Add a New Video Game</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
 
           <div className="nameForm">
