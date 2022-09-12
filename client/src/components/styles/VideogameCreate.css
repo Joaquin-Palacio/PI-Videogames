@@ -1,0 +1,155 @@
+
+.container-form-page {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 90px 0 100px;   
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.80);
+  border-radius: 30px;
+  border: 2px solid rgba(202, 29, 145, 0.9);
+  color: white;
+  padding: 20px;
+  margin: -50px 50px 0 0;
+  width: 620px;
+}
+
+
+.nameForm label{
+  display: inline-block;
+  padding: 4px 0 5px;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+
+.nameForm input{
+  background-color: transparent;
+  color: #cbb6b6;
+  border: 1px solid #cbb6b6;
+  padding-left: 8px;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font: inherit;
+  margin: 0;
+}
+.error{
+  color: red;
+  font-size: 20px;
+}
+
+
+.cajitaElemento{
+  display: inline-block;    
+  color: rgb(255, 255, 255);     
+  margin: 0 10px 0 -5px;   
+  
+}
+
+.selectBox{
+  margin: 10px 10px 0;
+  background-color:  rgba(17, 160, 243, 0.9);
+  color: white;
+  font-family: "Times New Roman",Times,serif;
+  padding: 4px;
+}
+
+
+
+
+.ButtonX{    
+  font-family: "Arial Black", Gadget, sans-serif;
+  height: 20px;
+  font-size: 10px;
+  justify-content: center;
+  transition: 0.5s;
+  background-color: #ba2e1e;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s;
+  cursor: pointer;
+  margin: 0px;
+ 
+  
+}
+
+.ButtonX:hover{
+  color:rgb(255, 255, 255);  
+  background-color: #f13106;
+}
+
+
+.form-btn-create{
+  text-align: center;
+  margin-top: 4%;    
+}
+
+.form-btn-create button{
+  margin: 10px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-color: rgba(0, 0, 0, 0.70);
+  color: #FFF;
+  box-shadow: 0 0 20px rgba(202, 29, 145, 0.9);
+  border-radius: 10px;
+  width: 200px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 25px;
+}
+.form-btn-create button:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 8px 10px 12px;
+  color:white;
+  background-color: rgba(202, 29, 145, 0.9);
+  transition: 0.5s;
+}
+
+.form-btn-back{
+  text-align: center;
+  margin-top: 4%;    
+}
+.form-btn-back button{
+  margin: 10px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 15px;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-color: black;
+  color: #FFF;
+  box-shadow: 0 0 20px rgba(17, 160, 243, 0.9);
+  border-radius: 10px;
+  width: 200px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 25px;
+}
+.form-btn-back button:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 8px 10px 12px;
+  color:white;
+  background-color: rgba(17, 160, 243, 0.9);
+  transition: 0.5s;
+}
+
+
+
+
+
+
+
+

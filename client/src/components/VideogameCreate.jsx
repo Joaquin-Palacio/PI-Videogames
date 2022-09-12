@@ -122,8 +122,8 @@ export default function AddVideogame() {
   }
 
   return (
-    <div className="componentCreate">
-      <div className="createButton">
+    <div className="container-form-page">
+      <div className="form-btn-back">
         <Link to="/home">
           <button>
             <h3>Back to Home</h3>
@@ -131,10 +131,9 @@ export default function AddVideogame() {
         </Link>
       </div>
 
-      <div className="Formulario">
+      <div className="container-form">
         <h1>¡Add a new videogame!</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <div></div>
 
           <div className="nameForm">
             <label>Name:</label>
@@ -142,21 +141,20 @@ export default function AddVideogame() {
             <input
               type="text"
               name="name"
-              placeholder="Video game name"
+              placeholder="Name..."
               value={videogame.name}
               onChange={(e) => handleChange(e)}
             />
             {errors.name && <p className="error">{errors.name}</p>}
           </div>
 
-          {/* DESCRIPTION */}
           <div className="nameForm">
             <label>Description:</label>
             <br />
             <input
               type="text"
               name="description"
-              placeholder="Description of the video game"
+              placeholder="Description..."
               value={videogame.description}
               onChange={(e) => handleChange(e)}
             />
@@ -165,25 +163,21 @@ export default function AddVideogame() {
             )}
           </div>
 
-          {/* ....IMAGE INPUT.... */}
           <div className="nameForm">
             <label>Image URL:</label>
             <br />
-
             <input
               name="image"
               type="text"
-              placeholder="URL of the videogame image"
+              placeholder="URL image"
               value={videogame.image}
               onChange={(e) => handleChange(e)}
             />
           </div>
 
-          {/* ..... Rating ..... */}
           <div className="nameForm">
             <label>Rating:</label>
             <br />
-
             <input
               name="rating"
               type="number"
@@ -193,11 +187,9 @@ export default function AddVideogame() {
             {errors.rating && <p className="error">{errors.rating}</p>}
           </div>
 
-          {/* ..... Released ..... */}
           <div className="nameForm">
             <label>Released:</label>
             <br />
-
             <input
               name="released"
               type="text"
@@ -209,8 +201,7 @@ export default function AddVideogame() {
           </div>
 
           <div className="genres">
-            <div>
-              {/* ..... Géneros ..... */}
+            <div>              
               <label>Genres: </label>
               <br />
             </div>
@@ -225,11 +216,9 @@ export default function AddVideogame() {
                 ))}
               </select>
             </div>
-            <div>
-              {/* ..... Generos Seleccionadas ..... */}
+            <div>          
 
               <div cassName="cajita">
-                <label>Genres selected:</label>
                 <br />
                 {videogame.genre?.map((el) => (
                   <div className="cajitaElemento">
@@ -247,11 +236,9 @@ export default function AddVideogame() {
             </div>
           </div>
 
-          {/* ..... Plataformas ..... */}
-
           <div>
             <div cassName="cajita">
-              <label>Platforms*</label>
+              <label>Platforms:</label>
               <br />
             </div>
             <div>
@@ -267,9 +254,7 @@ export default function AddVideogame() {
               </select>
             </div>
 
-            {/* ..... Plataformas Seleccionadas ..... */}
             <div>
-              <label>Platforms selected:</label>
               <br />
               {videogame.platforms?.map((el) => (
                 <div className="cajitaElemento">
@@ -285,10 +270,9 @@ export default function AddVideogame() {
               ))}
             </div>
           </div>
-
-          {/* Botón de envío */}
-          <div className="createButton">
-            <button type="submit">Create</button>
+          
+          <div className="form-btn-create">
+            <button type="submit">PLAY 🕹️</button>
           </div>
 
           <br />
