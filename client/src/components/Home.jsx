@@ -181,7 +181,7 @@ export default function Home() {
               })
             ) : (
               <div className="home-error">
-                <h1>Sorry, Your Search Had No Results 👎</h1>
+                <h1>Sorry, No Search Results 👎</h1>
                 <img
                   src="https://media.giphy.com/media/dUqu8On8QYJoFTj5FR/giphy.gif"
                   alt="gift"
