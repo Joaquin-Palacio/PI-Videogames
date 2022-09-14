@@ -4,9 +4,16 @@
 
 # Individual Project - Henry Videogames
 
-<p align="right">
-  <img height="200" src="./videogame.png" />
-</p>
+## Imágenes del Proyecto terminado 
+<h2>Landing Page</h2>
+<img src ="https://media.discordapp.net/attachments/961831653624381440/1019707611995721738/foto1.png?width=851&height=375" />
+<h2>Home</h2>
+<img src="https://media.discordapp.net/attachments/961831653624381440/1019707612314476635/foto2.png?width=857&height=375" />
+<h2>Formulario de creacion de videojuego</h2>
+<img src="https://media.discordapp.net/attachments/961831653624381440/1019707612666789998/foto3.png?width=855&height=375" />
+<h2>Detalles de videojuegos</h2>
+<img src="https://media.discordapp.net/attachments/961831653624381440/1019707612989771836/foto4.png?width=857&height=375" />
+
 
 ## Objetivos del Proyecto
 
@@ -16,14 +23,7 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Horarios y Fechas
-
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
-
 ## Comenzando
-
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
 
 Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
 
@@ -169,10 +169,3 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] __POST /videogame__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
   - Crea un videojuego en la base de datos
-
-
-#### Testing
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
-# PI-Videogames
