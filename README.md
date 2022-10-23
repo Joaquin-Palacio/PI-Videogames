@@ -24,7 +24,6 @@ La idea de este proyecto es que se puedan ver distintos juegos, junto con datos 
 ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
 
 
-
 <h3>Imágenes del Proyecto</h3> 
 <h4>Landing Page</h2>
 <img src ="https://media.discordapp.net/attachments/961831653624381440/1019707611995721738/foto1.png?width=851&height=375" />
