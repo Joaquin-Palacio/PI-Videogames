@@ -4,7 +4,7 @@
 
 # Individual Project - Henry Videogames
 
-## Imágenes del Proyecto terminado 
+<h3>Imágenes del Proyecto terminado</h3> 
 <h4>Landing Page</h2>
 <img src ="https://media.discordapp.net/attachments/961831653624381440/1019707611995721738/foto1.png?width=851&height=375" />
 <h4>Home</h2>
@@ -13,4 +13,3 @@
 <img src="https://media.discordapp.net/attachments/961831653624381440/1019707612666789998/foto3.png?width=855&height=375" />
 <h4>Detalles de videojuegos</h2>
 <img src="https://media.discordapp.net/attachments/961831653624381440/1019707612989771836/foto4.png?width=857&height=375" />
-
