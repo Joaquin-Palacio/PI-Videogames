@@ -12,7 +12,7 @@ La idea de este proyecto es que se puedan ver distintos juegos, junto con datos 
 * Agregar nuevos videojuegos
 
 
-<h3>Imágenes del Proyecto terminado</h3> 
+<h3>Imágenes del Proyecto</h3> 
 <h4>Landing Page</h2>
 <img src ="https://media.discordapp.net/attachments/961831653624381440/1019707611995721738/foto1.png?width=851&height=375" />
 <h4>Home</h2>
