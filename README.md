@@ -6,6 +6,11 @@
 
 ## General 
 La idea de este proyecto es que se puedan ver distintos juegos, junto con datos relevantes sobre los mismos. Se ha utilizado la siguiente api: https://rawg.io/apidocs. 
+<h3>A traves de esta app se puede :</h3>
+* Buscar Videojuegos <br/>
+* Filtrarlos y Ordenarlos <br/>
+* Agregar nuevos videojuegos
+
 
 <h3>Imágenes del Proyecto terminado</h3> 
 <h4>Landing Page</h2>
